@@ -7,7 +7,7 @@ import banner from './images/banner.jpeg';
 
 const Login = () => {
   const { loading } = useSelector((state) => state.bookDoctorReducer);
-  const [message, setMessage] = useState('');
+  const [info, setMessage] = useState({ message: '', status: false });
 
   const setup = () => ({
     email: '',
@@ -33,6 +33,8 @@ const Login = () => {
     setMessage(response);
   };
 
+  const { message, status } = info;
+
   return (
     <>
       <section className={styles.loginContainer}>
@@ -40,7 +42,7 @@ const Login = () => {
         <div className={`${styles.login} ${styles.shadow}`}>
           <h2>Book a Doctor</h2>
           <div className={styles.line} />
-          <h6>{message}</h6>
+          <div className={`${status === true ? styles.success : styles.failure}`}>{message}</div>
           <form onSubmit={loginHandler}>
             <input
               type="text"

@@ -24,9 +24,9 @@ export const accountLogin = (data) => async (dispatch) => {
       if (!json.error) {
         StorageManager.setToken(json.token, json.exp);
         StorageManager.setUserDetails(json.user_details);
-        message = 'Login successful, redirecting ... ';
+        message = { message: 'Login successful, redirecting ... ', status: true };
       } else {
-        message = json.error_message;
+        message = { message: json.error_message, status: false };
       }
     });
   return message;
