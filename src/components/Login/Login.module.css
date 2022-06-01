@@ -12,7 +12,7 @@
 }
 
 .login {
-    width: 60rem;
+    width: 50rem;
     padding: 1rem;
     border-radius: 0.5rem;
 }
@@ -87,6 +87,6 @@ input[type="password"]:focus {
 
     .banner {
         width: 100%;
-        /* margin-bottom: 2rem; */
+        margin-bottom: 0;
     }    
 }

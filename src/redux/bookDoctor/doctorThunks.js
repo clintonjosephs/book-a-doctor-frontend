@@ -1,7 +1,7 @@
-import { getRequest } from '../../helpers/api/call';
+import { getRequest, postRequest } from '../../helpers/api/call';
 import * as actions from './doctorActions';
 
-const fetchAllDoctors = () => async (dispatch) => {
+export const fetchAllDoctors = () => async (dispatch) => {
   try {
     dispatch(actions.loading());
     const response = await getRequest('doctors/index');
@@ -13,4 +13,12 @@ const fetchAllDoctors = () => async (dispatch) => {
   }
 };
 
-export default fetchAllDoctors;
+export const accountLogin = (data) => async (dispatch) => {
+  dispatch(actions.loading());
+  await postRequest('users/login', data).then((response) => response.json())
+    .then((json) => {
+      dispatch(actions.apiErrors(false));
+      dispatch(actions.loading());
+      console.log(json);
+    });
+};

@@ -1,5 +1,5 @@
 export default class StorageManager {
-    static getToken = () => (localStorage.getItem('token') ? localStorage.getItem('token') : {});
+    static getToken = () => (localStorage.getItem('token') ? localStorage.getItem('token') : { token: '' });
 
     static getUserDetails = () => (localStorage.getItem('userDetails') ? JSON.parse(localStorage.getItem('userDetails')) : {});
 

@@ -1,13 +1,34 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { accountLogin } from '../../redux/bookDoctor/doctorThunks';
 import styles from './Login.module.css';
 import banner from './images/banner.jpeg';
 
 const Login = () => {
+  const { loading } = useSelector((state) => state.bookDoctorReducer);
 
-  const loginHandler = () => {
-    console.log('someone hit submit button');
+  const setup = () => ({
+    email: '',
+    password: '',
+  });
+
+  const dispatch = useDispatch();
+
+  const [loginData, setLoginData] = useState(setup());
+
+  const { email, password } = loginData;
+
+  const changeHandler = (event) => {
+    setLoginData((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  const loginHandler = async (event) => {
+    event.preventDefault();
+    dispatch(accountLogin(loginData));
   };
 
   return (
@@ -23,12 +44,16 @@ const Login = () => {
               name="email"
               placeholder="Email Address"
               required
+              value={email}
+              onChange={changeHandler}
             />
             <input
               type="password"
               name="password"
               placeholder="Password"
+              value={password}
               required
+              onChange={changeHandler}
             />
             <div>
               <input
@@ -39,7 +64,10 @@ const Login = () => {
               &nbsp;
               Remember me?
             </div>
-            <button type="submit" className={styles.formSubmitBtn}>Log in</button>
+            {
+              loading ? <button type="submit" className={styles.formSubmitBtn}>Log in</button> : <button type="button" className={styles.formSubmitBtn}>Processing ...</button>
+            }
+
             <div style={{ marginTop: '1rem' }}>
               Don&apos;t have an account?
               <NavLink to="/signup"> signup </NavLink>

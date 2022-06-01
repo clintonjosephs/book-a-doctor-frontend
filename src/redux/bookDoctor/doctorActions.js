@@ -5,9 +5,7 @@ const API_LOADING = 'doctors/API_LOADING';
 
 // initial state
 const bookDoctorState = {
-  doctors: [
-    { name: 'Mithi Lacka', country: 'France', brother: 'atilla' },
-  ],
+  doctors: [],
   appointments: [],
   error: false,
   loading: true,
