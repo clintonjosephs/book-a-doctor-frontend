@@ -7,6 +7,7 @@ import banner from './images/banner.jpeg';
 
 const Login = () => {
   const { loading } = useSelector((state) => state.bookDoctorReducer);
+  const [message, setMessage] = useState('');
 
   const setup = () => ({
     email: '',
@@ -28,7 +29,8 @@ const Login = () => {
 
   const loginHandler = async (event) => {
     event.preventDefault();
-    dispatch(accountLogin(loginData));
+    const response = await dispatch(accountLogin(loginData));
+    setMessage(response);
   };
 
   return (
@@ -38,6 +40,7 @@ const Login = () => {
         <div className={`${styles.login} ${styles.shadow}`}>
           <h2>Book a Doctor</h2>
           <div className={styles.line} />
+          <h6>{message}</h6>
           <form onSubmit={loginHandler}>
             <input
               type="text"

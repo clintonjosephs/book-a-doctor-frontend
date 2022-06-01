@@ -1,4 +1,5 @@
 import { getRequest, postRequest } from '../../helpers/api/call';
+import StorageManager from '../../helpers/format/StorageManager';
 import * as actions from './doctorActions';
 
 export const fetchAllDoctors = () => async (dispatch) => {
@@ -14,11 +15,19 @@ export const fetchAllDoctors = () => async (dispatch) => {
 };
 
 export const accountLogin = (data) => async (dispatch) => {
+  let message = '';
   dispatch(actions.loading());
   await postRequest('users/login', data).then((response) => response.json())
     .then((json) => {
       dispatch(actions.apiErrors(false));
       dispatch(actions.loading());
-      console.log(json);
+      if (!json.error) {
+        StorageManager.setToken(json.token, json.exp);
+        StorageManager.setUserDetails(json.user_details);
+        message = 'Login successful, redirecting ... ';
+      } else {
+        message = json.error_message;
+      }
     });
+  return message;
 };

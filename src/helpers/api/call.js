@@ -13,15 +13,11 @@ export const getRequest = async (route) => fetch(endpoint + route, {
   },
 }).then((response) => response);
 
-export const postRequest = async (route, data) => {
-  console.log(JSON.stringify(data));
-
-  return fetch(endpoint + route, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${StorageManager.getToken().token}`,
-    },
-    body: JSON.stringify(data),
-  }).then((response) => response);
-};
+export const postRequest = async (route, data) => fetch(endpoint + route, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${StorageManager.getToken().token}`,
+  },
+  body: JSON.stringify(data),
+}).then((response) => response);
