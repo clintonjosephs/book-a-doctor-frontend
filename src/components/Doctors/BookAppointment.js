@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Reserve() {
+function BookAppointment() {
   return (
     <div>Reserve</div>
   );
 }
 
-export default Reserve;
+export default BookAppointment;

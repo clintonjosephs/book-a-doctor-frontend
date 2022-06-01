@@ -1,0 +1,24 @@
+import StorageManager from '../format/storageManager';
+
+export const endpoint = 'http://localhost:3001/v1/';
+
+export const formatDate = (date) => date;
+
+export const getRequest = async (route) => fetch(endpoint + route, {
+  method: 'GET',
+  mode: 'cors',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${StorageManager.getToken()}`,
+  },
+}).then((response) => response);
+
+export const postRequest = async (route, data) => fetch(endpoint + route, {
+  method: 'POST',
+  mode: 'cors',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${StorageManager.getToken()}`,
+  },
+  body: JSON.stringify(data),
+}).then((response) => response);
