@@ -1,4 +1,4 @@
-import StorageManager from '../format/storageManager';
+import StorageManager from '../format/StorageManager';
 
 export const endpoint = 'http://localhost:3001/v1/';
 
