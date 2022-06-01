@@ -10,8 +10,8 @@ import Welcome from './components/Welcome/Welcome';
 
 const App = () => (
   <Routes>
-    <Route path="/" element={<Login />} />
-    <Route path="welcome" element={<Welcome />} />
+    <Route path="/" element={<Welcome />} />
+    <Route path="login" element={<Login />} />
     <Route path="myreservations" element={<MyReservations />} />
     <Route path="signup" element={<Signup />} />
     <Route path="add_doctor" element={<AddDoctor />} />
