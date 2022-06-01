@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './Login.module.css';
 
 const Login = () => {
@@ -34,6 +35,10 @@ const Login = () => {
             Remember me?
           </div>
           <button type="submit" className={styles.formSubmitBtn}>Log in</button>
+          <div style={{ marginTop: '1rem' }}>
+            Don&apos;t have an account?
+            <NavLink to="/signup" exact> signup </NavLink>
+          </div>
         </form>
       </div>
     </section>
