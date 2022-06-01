@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900|Ubuntu:400,500,700&display=swap');
+
+:root {
+  --primary-color: #97bf0f;
+  --secondary-color: #ffb400;
+  --accent-color: #cbdf87;
+  --neutral-color: #b9b9b9;
+  --white: #fff;
+  --black: #000;
+  --red: #f00;
+  --font: 'Montserrat', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--white);
+  font-family: var(--font);
+}
