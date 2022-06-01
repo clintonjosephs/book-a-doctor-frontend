@@ -4,13 +4,15 @@
     padding: 0;
     margin: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #FFFFFF;
+
 }
 
 .login {
-    width: 45rem;
+    width: 60rem;
     padding: 1rem;
     border-radius: 0.5rem;
 }
@@ -72,9 +74,19 @@ input[type="password"]:focus {
     border: solid 1px var(--primary-color) !important;
 }
 
+.banner {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 2rem;
+}
 
 @media (max-width: 768px) {
     .login {
         width: 100%;
     }
+
+    .banner {
+        width: 100%;
+        /* margin-bottom: 2rem; */
+    }    
 }
