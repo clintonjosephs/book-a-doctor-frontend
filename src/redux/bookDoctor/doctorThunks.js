@@ -1,7 +1,7 @@
-import { getRequest } from '../../helpers/api/call';
+import { getRequest, getOneDoctor } from '../../helpers/api/call';
 import * as actions from './doctorActions';
 
-const fetchAllDoctors = () => async (dispatch) => {
+export const fetchAllDoctors = () => async (dispatch) => {
   try {
     dispatch(actions.loading());
     const response = await getRequest('doctors/index');
@@ -13,4 +13,14 @@ const fetchAllDoctors = () => async (dispatch) => {
   }
 };
 
-export default fetchAllDoctors;
+export const fetchOneDoctor = (id) => async (dispatch) => {
+  try {
+    dispatch(actions.loading());
+    const response = await getOneDoctor(id);
+    dispatch(actions.loadOneDoctor(response));
+    dispatch(actions.loading());
+  } catch (err) {
+    dispatch(actions.apiErrors(true));
+    throw new Error(err);
+  }
+};

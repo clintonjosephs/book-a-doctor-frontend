@@ -1,5 +1,6 @@
 // action addresses
 const GET_ALL_DOCTORS = 'doctors/GET_ALL_DOCTORS';
+const GET_DOCTOR = 'doctors/GET_DOCTOR';
 const API_ERROR = 'doctors/API_ERROR';
 const API_LOADING = 'doctors/API_LOADING';
 
@@ -8,6 +9,7 @@ const bookDoctorState = {
   doctors: [
     { name: 'Mithi Lacka', country: 'France', brother: 'atilla' },
   ],
+  doctor: [],
   appointments: [],
   error: false,
   loading: true,
@@ -16,6 +18,11 @@ const bookDoctorState = {
 // synchronous actions
 export const loadAllDoctors = (payload) => ({
   type: GET_ALL_DOCTORS,
+  payload,
+});
+
+export const loadOneDoctor = (payload) => ({
+  type: GET_DOCTOR,
   payload,
 });
 
@@ -35,6 +42,8 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
   switch (type) {
     case GET_ALL_DOCTORS:
       return { ...state, doctors: payload };
+    case GET_DOCTOR:
+      return { ...state, doctor: payload };
     case API_ERROR:
       return { ...state, error: payload };
     case API_LOADING:
