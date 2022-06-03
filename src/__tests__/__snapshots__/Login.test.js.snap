@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check login components matches actual design 1`] = `
+<div
+  style={
+    Object {
+      "opacity": 1,
+      "transform": "translateX(300px) translateZ(0)",
+    }
+  }
+>
+  <section
+    className="loginContainer"
+  >
+    <div
+      className="login shadow"
+    >
+      <h2>
+        Book a Doctor
+      </h2>
+      <div
+        className="line"
+      />
+      <div
+        className="failure"
+      >
+        
+      </div>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          name="email"
+          onChange={[Function]}
+          placeholder="Email Address"
+          required={true}
+          type="text"
+          value=""
+        />
+        <input
+          name="password"
+          onChange={[Function]}
+          placeholder="Password"
+          required={true}
+          type="password"
+          value=""
+        />
+        <div>
+          <input
+            name="remember"
+            type="checkbox"
+          />
+           
+            Remember me?
+        </div>
+        <button
+          className="formSubmitBtn"
+          type="submit"
+        >
+          Log in
+        </button>
+        <div
+          style={
+            Object {
+              "marginTop": "1rem",
+            }
+          }
+        >
+          Don't have an account?
+          <a
+            className=""
+            href="/signup"
+            onClick={[Function]}
+          >
+             signup 
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+`;
