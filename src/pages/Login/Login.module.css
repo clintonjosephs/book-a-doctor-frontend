@@ -7,13 +7,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  background: url('../../assets/images/login_bg.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .login {
   width: 50rem;
   padding: 1rem;
   border-radius: 0.5rem;
+  background: #fff;
 }
 
 .line {
@@ -96,6 +99,6 @@ input[type="password"]:focus {
 
   .banner {
     width: 100%;
-    margin-bottom: 0;
+    margin: 0;
   }
 }

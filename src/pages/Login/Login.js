@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import AnimateWrapper from '../../components/AnimateWrapper';
 import { accountLogin } from '../../redux/bookDoctor/doctorThunks';
 import styles from './Login.module.css';
-import banner from '../../assets/images/banner.jpeg';
 
 const Login = () => {
   const { loading } = useSelector((state) => state.bookDoctorReducer);
@@ -36,9 +36,14 @@ const Login = () => {
   const { message, status } = info;
 
   return (
-    <>
+    <AnimateWrapper
+      initial={{ x: 300, opacity: 1 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: 300, opacity: 0 }}
+      transition={{ duration: 0.8 }}
+    >
       <section className={styles.loginContainer}>
-        <img src={banner} alt="login banner" className={styles.banner} />
+        {/* <img src={banner} alt="login banner" className={styles.banner} /> */}
         <div className={`${styles.login} ${styles.shadow}`}>
           <h2>Book a Doctor</h2>
           <div className={styles.line} />
@@ -80,7 +85,7 @@ const Login = () => {
           </form>
         </div>
       </section>
-    </>
+    </AnimateWrapper>
   );
 };
 
