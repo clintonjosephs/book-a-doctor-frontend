@@ -16,7 +16,7 @@ const Login = () => {
     }
   }, []);
 
-  const { loading, loginStatus } = useSelector((state) => state.bookDoctorReducer);
+  const { loading } = useSelector((state) => state.bookDoctorReducer);
   const [info, setMessage] = useState({ message: '', status: false });
 
   const setup = () => ({
@@ -40,14 +40,14 @@ const Login = () => {
   const loginHandler = async (event) => {
     event.preventDefault();
     const response = await dispatch(accountLogin(loginData));
-    setMessage(response);
+    if (response.status) {
+      navigate('/');
+    } else {
+      setMessage(response);
+    }
   };
 
   const { message, status } = info;
-
-  if (loginStatus) {
-    navigate('/');
-  }
 
   return (
     <AnimateWrapper
