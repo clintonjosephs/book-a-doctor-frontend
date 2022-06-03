@@ -5,19 +5,62 @@ import Details from './components/Doctors/Details';
 import ListDoctors from './components/Doctors/ListDoctors';
 import Login from './components/Login/Login';
 import MyReservations from './components/Reservations/MyReservations';
+import PrivateRoute from './components/routes/PrivateRoute';
 import Signup from './components/Signup/Signup';
 import Welcome from './components/Welcome/Welcome';
 
 const App = () => (
   <Routes>
-    <Route path="/" element={<Welcome />} />
+    <Route
+      path="/"
+      element={(
+        <PrivateRoute>
+          <Welcome />
+        </PrivateRoute>
+          )}
+    />
     <Route path="login" element={<Login />} />
-    <Route path="myreservations" element={<MyReservations />} />
+    <Route
+      path="myreservations"
+      element={(
+        <PrivateRoute>
+          <MyReservations />
+        </PrivateRoute>
+       )}
+    />
     <Route path="signup" element={<Signup />} />
-    <Route path="add_doctor" element={<AddDoctor />} />
-    <Route path="book_appointment" element={<BookAppointment />} />
-    <Route path="doctor_details" element={<Details />} />
-    <Route path="all_doctors" element={<ListDoctors />} />
+    <Route
+      path="add_doctor"
+      element={(
+        <PrivateRoute>
+          <AddDoctor />
+        </PrivateRoute>
+        )}
+    />
+    <Route
+      path="book_appointment"
+      element={(
+        <PrivateRoute>
+          <BookAppointment />
+        </PrivateRoute>
+       )}
+    />
+    <Route
+      path="doctor_details"
+      element={(
+        <PrivateRoute>
+          <Details />
+        </PrivateRoute>
+       )}
+    />
+    <Route
+      path="all_doctors"
+      element={(
+        <PrivateRoute>
+          <ListDoctors />
+        </PrivateRoute>
+       )}
+    />
   </Routes>
 );
 
