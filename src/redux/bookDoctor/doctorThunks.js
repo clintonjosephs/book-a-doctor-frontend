@@ -17,14 +17,15 @@ export const fetchAllDoctors = () => async (dispatch) => {
 export const accountLogin = (data) => async (dispatch) => {
   let message = '';
   dispatch(actions.loading());
+  dispatch(actions.loginStatus(false));
   await postRequest('users/login', data).then((response) => response.json())
     .then((json) => {
       dispatch(actions.apiErrors(false));
       dispatch(actions.loading());
       if (!json.error) {
         StorageManager.setToken(json.token, json.exp);
-        actions.userDetails(json.user_details);
-        message = { message: 'Login successful, redirecting ... ', status: true };
+        dispatch(actions.userDetails(json.user_details));
+        dispatch(actions.loginStatus(true));
       } else {
         message = { message: json.error_message, status: false };
       }

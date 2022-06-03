@@ -16,7 +16,7 @@ const Login = () => {
     }
   }, []);
 
-  const { loading } = useSelector((state) => state.bookDoctorReducer);
+  const { loading, loginStatus } = useSelector((state) => state.bookDoctorReducer);
   const [info, setMessage] = useState({ message: '', status: false });
 
   const setup = () => ({
@@ -44,6 +44,10 @@ const Login = () => {
   };
 
   const { message, status } = info;
+
+  if (loginStatus) {
+    navigate('/');
+  }
 
   return (
     <AnimateWrapper
