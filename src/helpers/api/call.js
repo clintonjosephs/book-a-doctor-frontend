@@ -24,7 +24,7 @@ export const postRequest = async (route, data) => fetch(endpoint + route, {
 }).then((response) => response);
 
 export const getOneDoctor = (id) => {
-  const resultFetch = fetch(`${endpoint}/doctors/${id}`, {
+  const resultFetch = fetch(`${endpoint}doctors/${id}`, {
     method: 'GET',
     mode: 'cors',
     // headers: {
