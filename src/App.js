@@ -3,21 +3,23 @@ import AddDoctor from './components/Doctors/AddDoctor';
 import BookAppointment from './components/Doctors/BookAppointment';
 import Details from './components/Doctors/Details';
 import ListDoctors from './components/Doctors/ListDoctors';
-import Login from './components/Login/Login';
+import Login from './pages/Login/Login';
 import MyReservations from './components/Reservations/MyReservations';
 import PrivateRoute from './components/routes/PrivateRoute';
 import Signup from './components/Signup/Signup';
 import Welcome from './components/Welcome/Welcome';
+import NotFound from './pages/NotFound/NotFound';
 
 const App = () => (
   <Routes>
+    <Route path="*" element={<NotFound />} />
     <Route
       path="/"
       element={(
         <PrivateRoute>
           <Welcome />
         </PrivateRoute>
-          )}
+      )}
     />
     <Route path="login" element={<Login />} />
     <Route
@@ -26,7 +28,7 @@ const App = () => (
         <PrivateRoute>
           <MyReservations />
         </PrivateRoute>
-       )}
+      )}
     />
     <Route path="signup" element={<Signup />} />
     <Route
@@ -35,7 +37,7 @@ const App = () => (
         <PrivateRoute>
           <AddDoctor />
         </PrivateRoute>
-        )}
+      )}
     />
     <Route
       path="book_appointment"
@@ -43,7 +45,7 @@ const App = () => (
         <PrivateRoute>
           <BookAppointment />
         </PrivateRoute>
-       )}
+      )}
     />
     <Route
       path="doctor_details"
@@ -51,7 +53,7 @@ const App = () => (
         <PrivateRoute>
           <Details />
         </PrivateRoute>
-       )}
+      )}
     />
     <Route
       path="all_doctors"
@@ -59,7 +61,7 @@ const App = () => (
         <PrivateRoute>
           <ListDoctors />
         </PrivateRoute>
-       )}
+      )}
     />
   </Routes>
 );

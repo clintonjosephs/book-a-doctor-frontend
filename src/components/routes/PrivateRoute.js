@@ -2,18 +2,19 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import StorageManager from '../../helpers/format/StorageManager';
+import { dateDiff } from '../../helpers/format/format';
 
 const PrivateRoute = ({ children }) => {
-  const accessToken = StorageManager.getToken().token;
+  const auth = StorageManager.getToken();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (accessToken === '' || !!accessToken) {
+    if (auth.token === '' || !!auth || (auth.token !== '' && dateDiff(auth.exp) > 1)) {
       navigate('/login');
     }
   }, []);
 
-  if (accessToken !== '') {
+  if (auth !== '') {
     return children;
   }
 

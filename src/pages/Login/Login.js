@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { accountLogin } from '../../redux/bookDoctor/doctorThunks';
 import styles from './Login.module.css';
-import banner from './images/banner.jpeg';
+import banner from '../../assets/images/banner.jpeg';
 
 const Login = () => {
   const { loading } = useSelector((state) => state.bookDoctorReducer);
