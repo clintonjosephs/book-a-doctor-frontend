@@ -6,6 +6,7 @@ import { accountLogin } from '../../redux/bookDoctor/doctorThunks';
 import styles from './Login.module.css';
 
 const Login = () => {
+  // const navigate = useNavigate();
   const { loading } = useSelector((state) => state.bookDoctorReducer);
   const [info, setMessage] = useState({ message: '', status: false });
 
@@ -43,7 +44,6 @@ const Login = () => {
       transition={{ duration: 0.8 }}
     >
       <section className={styles.loginContainer}>
-        {/* <img src={banner} alt="login banner" className={styles.banner} /> */}
         <div className={`${styles.login} ${styles.shadow}`}>
           <h2>Book a Doctor</h2>
           <div className={styles.line} />

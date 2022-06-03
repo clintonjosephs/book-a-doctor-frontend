@@ -9,18 +9,12 @@ const PrivateRoute = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (auth.token === '' || !!auth || (auth.token !== '' && dateDiff(auth.exp) > 1)) {
+    if (auth.token === '' || !auth || (auth.token !== '' && dateDiff(auth.exp_date.toString()) > 1)) {
       navigate('/login');
     }
   }, []);
 
-  if (auth !== '') {
-    return children;
-  }
-
-  return (
-    <p>Something went wrong</p>
-  );
+  return children;
 };
 
 PrivateRoute.propTypes = {
