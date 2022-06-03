@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import AnimateWrapper from '../../components/AnimateWrapper';
+import { userStatus } from '../../helpers/format/format';
 import { accountLogin } from '../../redux/bookDoctor/doctorThunks';
 import styles from './Login.module.css';
 
 const Login = () => {
-  // const navigate = useNavigate();
+  // if user exists redirect to main page
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userStatus()) {
+      navigate('/');
+    }
+  }, []);
+
   const { loading } = useSelector((state) => state.bookDoctorReducer);
   const [info, setMessage] = useState({ message: '', status: false });
 

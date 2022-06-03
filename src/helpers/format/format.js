@@ -1,3 +1,5 @@
+import StorageManager from './StorageManager';
+
 export const dateDiff = (date) => {
   const currentDate = new Date();
   const inputDate = new Date(date);
@@ -8,4 +10,12 @@ export const dateDiff = (date) => {
 
 export const blobToImage = () => {
 
+};
+
+export const userStatus = () => {
+  const auth = StorageManager.getToken();
+  if (auth.token === '' || !auth || (auth.token !== '' && dateDiff(auth.exp_date.toString()) > 1)) {
+    return false;
+  }
+  return true;
 };
