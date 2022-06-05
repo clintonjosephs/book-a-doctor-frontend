@@ -63,8 +63,9 @@ const Login = () => {
           <div className={`${status === true ? styles.success : styles.failure}`}>{message}</div>
           <form onSubmit={loginHandler}>
             <input
-              type="text"
+              type="email"
               name="email"
+              data-testid="email-input"
               placeholder="Email Address"
               required
               value={email}
@@ -73,6 +74,7 @@ const Login = () => {
             <input
               type="password"
               name="password"
+              data-testid="password-input"
               placeholder="Password"
               value={password}
               required

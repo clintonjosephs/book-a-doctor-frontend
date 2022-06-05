@@ -30,14 +30,16 @@ exports[`check login components matches actual design 1`] = `
         onSubmit={[Function]}
       >
         <input
+          data-testid="email-input"
           name="email"
           onChange={[Function]}
           placeholder="Email Address"
           required={true}
-          type="text"
+          type="email"
           value=""
         />
         <input
+          data-testid="password-input"
           name="password"
           onChange={[Function]}
           placeholder="Password"
