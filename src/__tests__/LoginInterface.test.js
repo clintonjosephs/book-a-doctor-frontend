@@ -41,8 +41,6 @@ describe('Test login screen functionality', () => {
         fireEvent.change(screen.getByTestId('password-input'), {
           target: { value: 'wrongpassword' },
         });
-      //   userEvent.paste(screen.getByTestId('email-input'), 'admin@microverse.com');
-      //   userEvent.paste(screen.getByTestId('password-input'), 'wrongpassword');
         userEvent.click(screen.getByText('Log in'));
         const result = await screen.findByText('invalid password');
         expect(result).toBeInTheDocument();
