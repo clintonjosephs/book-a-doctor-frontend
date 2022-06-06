@@ -28,7 +28,7 @@ export const getOneDoctor = (id) => {
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${StorageManager.getToken()}`,
+      Authorization: `Bearer ${StorageManager.getToken().token}`,
     },
   })
     .then((res) => res.json());
