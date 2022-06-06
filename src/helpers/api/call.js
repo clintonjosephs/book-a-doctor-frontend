@@ -27,3 +27,16 @@ export const postRequestWithFormData = async (route, data) => fetch(endpoint + r
   mode: 'cors',
   body: data,
 }).then((response) => response.json());
+
+export const getOneDoctor = (id) => {
+  const resultFetch = fetch(`${endpoint}doctors/${id}`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${StorageManager.getToken()}`,
+    },
+  }).then((res) => res.json());
+
+  return resultFetch;
+};

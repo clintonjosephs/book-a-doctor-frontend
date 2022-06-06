@@ -2,10 +2,10 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import { cleanup } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import store from '../redux/store';
-import Login from '../pages/Login/Login';
-import bookDoctorReducer, * as actions from '../redux/bookDoctor/doctorActions';
-import UserData from '../__mocks__/UserData';
+import store from '../../../redux/store';
+import Login from '../../../pages/Login/Login';
+import bookDoctorReducer, * as actions from '../../../redux/bookDoctor/doctorActions';
+import UserData from '../../../__mocks__/UserData';
 
 const LoginProvider = () => (
   <Provider store={store}>
