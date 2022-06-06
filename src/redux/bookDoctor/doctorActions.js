@@ -2,15 +2,14 @@
 const GET_ALL_DOCTORS = 'doctors/GET_ALL_DOCTORS';
 const GET_DOCTOR = 'doctors/GET_DOCTOR';
 const API_ERROR = 'doctors/API_ERROR';
+const USER_DETAILS = 'doctors/USER_DETAILS';
 const API_LOADING = 'doctors/API_LOADING';
 
 // initial state
 const bookDoctorState = {
-  doctors: [
-    { name: 'Mithi Lacka', country: 'France', brother: 'atilla' },
-  ],
-  doctor: [],
+  doctors: [],
   appointments: [],
+  userDetails: {},
   error: false,
   loading: true,
 };
@@ -35,6 +34,10 @@ export const loading = () => ({
   type: API_LOADING,
 });
 
+export const userDetails = (payload) => ({
+  type: USER_DETAILS,
+  payload,
+});
 // ... other synchronous actions goes here
 
 // reducer
@@ -48,6 +51,8 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
       return { ...state, error: payload };
     case API_LOADING:
       return { ...state, loading: !state.loading };
+    case USER_DETAILS:
+      return { ...state, userDetails: payload };
     default:
       return state;
   }
