@@ -5,8 +5,9 @@ import * as actions from './doctorActions';
 export const fetchAllDoctors = () => async (dispatch) => {
   try {
     dispatch(actions.loading());
-    const response = await getRequest('doctors/index');
-    dispatch(actions.loadAllDoctors(response.json()));
+    const response = await getRequest('doctors').then((data) => data.json());
+    console.log(response);
+    dispatch(actions.loadAllDoctors(response.data));
     dispatch(actions.loading());
   } catch (err) {
     dispatch(actions.apiErrors(true));
