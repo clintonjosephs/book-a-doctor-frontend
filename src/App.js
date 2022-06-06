@@ -4,9 +4,9 @@ import BookAppointment from './components/Doctors/BookAppointment';
 import Details from './components/Doctors/Details';
 import ListDoctors from './components/Doctors/ListDoctors';
 import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
 import MyReservations from './components/Reservations/MyReservations';
 import PrivateRoute from './components/routes/PrivateRoute';
-import Signup from './components/Signup/Signup';
 import Welcome from './components/Welcome/Welcome';
 import NotFound from './pages/NotFound/NotFound';
 
