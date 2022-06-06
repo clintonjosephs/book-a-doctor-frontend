@@ -48,7 +48,7 @@ const App = () => (
       )}
     />
     <Route
-      path="doctor_details"
+      path="doctor_details/:id"
       element={(
         <PrivateRoute>
           <Details />
