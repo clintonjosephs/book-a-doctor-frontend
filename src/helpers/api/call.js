@@ -9,16 +9,15 @@ export const getRequest = async (route) => fetch(endpoint + route, {
   mode: 'cors',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${StorageManager.getToken()}`,
+    Authorization: `Bearer ${StorageManager.getToken().token}`,
   },
 }).then((response) => response);
 
 export const postRequest = async (route, data) => fetch(endpoint + route, {
   method: 'POST',
-  mode: 'cors',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${StorageManager.getToken()}`,
+    Authorization: `Bearer ${StorageManager.getToken().token}`,
   },
   body: JSON.stringify(data),
 }).then((response) => response);
