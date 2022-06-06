@@ -28,9 +28,9 @@ const Signup = () => {
       id: 1,
       name: 'name',
       type: 'text',
-      placeholder: 'Username*',
+      placeholder: 'Name*',
       errorMessage: 'Name should be 3-150 characters.',
-      pattern: '^[A-Za-z0-9]{3,150}$',
+      pattern: '^[A-Za-z0-9 ]{3,150}$',
     },
     {
       id: 2,
