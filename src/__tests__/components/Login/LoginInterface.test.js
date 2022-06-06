@@ -4,8 +4,8 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter as Router } from 'react-router-dom';
-import store from '../redux/store';
-import Login from '../pages/Login/Login';
+import store from '../../../redux/store';
+import Login from '../../../pages/Login/Login';
 
 const LoginProvider = () => (
   <Provider store={store}>
