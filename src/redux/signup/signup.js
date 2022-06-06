@@ -1,4 +1,5 @@
 import { postRequestWithFormData } from '../../helpers/api/call';
+import StorageManager from '../../helpers/format/StorageManager';
 
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
@@ -9,7 +10,7 @@ const signupReducer = (state = { signup: false }, action) => {
       return {
         ...state,
         signup: true,
-        value: action.payload,
+        payload: action.payload,
       };
     }
     case SIGNUP_FAILURE: {
@@ -52,6 +53,7 @@ export const signupDispatcher = (data) => async (dispatch) => {
   if (response.error) {
     dispatch(signupFailure(response.error_message));
   } else {
-    dispatch(signupSuccess(response));
+    StorageManager.setToken(response.token, response.exp);
+    dispatch(signupSuccess(response.user_details));
   }
 };
