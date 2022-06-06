@@ -13,6 +13,8 @@ function Details() {
     dispatch(fetchOneDoctor(id));
   }, [dispatch]);
 
+  console.log(doctor);
+
   return (
     <section className={classes.doctor}>
       <div className={classes.detail}>

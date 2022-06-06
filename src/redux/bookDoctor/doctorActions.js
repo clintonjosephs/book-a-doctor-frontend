@@ -8,6 +8,7 @@ const API_LOADING = 'doctors/API_LOADING';
 // initial state
 const bookDoctorState = {
   doctors: [],
+  doctor: [],
   appointments: [],
   userDetails: {},
   error: false,
