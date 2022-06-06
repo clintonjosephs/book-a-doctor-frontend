@@ -26,10 +26,10 @@ export const getOneDoctor = (id) => {
   const resultFetch = fetch(`${endpoint}doctors/${id}`, {
     method: 'GET',
     mode: 'cors',
-    // headers: {
-    //   'Content-Type': 'application/json',
-    //   Authorization: `Bearer ${StorageManager.getToken()}`,
-    // },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${StorageManager.getToken()}`,
+    },
   })
     .then((res) => res.json());
 
