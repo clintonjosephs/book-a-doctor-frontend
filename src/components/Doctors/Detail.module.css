@@ -1,10 +1,16 @@
+.doctor {
+  margin-left: 17rem;
+}
+
 .detail {
   display: flex;
   padding: 0 1rem;
+  margin-top: 1rem;
 }
 
 img {
   width: 100%;
+  max-height: 80vh;
   border-radius: 20px;
 }
 
@@ -86,14 +92,18 @@ img {
   .detail {
     display: flex;
     flex-direction: column;
-    padding: 0 1rem;
+    padding: 0 0.7rem;
   }
 }
 
 @media (max-width: 500px) {
+  .doctor {
+    margin-left: 0;
+  }
+
   .detail {
     display: flex;
     flex-direction: column;
-    padding: 0 1rem;
+    padding: 0 0.7rem;
   }
 }
