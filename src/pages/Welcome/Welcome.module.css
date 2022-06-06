@@ -1,0 +1,45 @@
+.doctorsCarousel {
+   height: 100vh;
+   margin-left: 20rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.docName {
+    font-size: 1.7rem;
+    font-weight: lighter;
+    text-align: center;
+    margin: 1rem;
+}
+
+.docDescription {
+    font-size: 1rem;
+}
+
+.doctorsCarousel ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.doctorsCarousel ul li {
+    margin: 5rem;
+}
+
+
+@media (max-width: 768px) {
+    .doctorsCarousel {
+        margin-left: 0;
+    }
+
+    .doctorsCarousel ul {
+        flex-direction: column;
+    }
+    
+    .doctorsCarousel ul li {
+        margin: 0rem;
+    }
+}

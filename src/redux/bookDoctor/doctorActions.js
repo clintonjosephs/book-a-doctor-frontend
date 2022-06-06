@@ -12,7 +12,7 @@ const bookDoctorState = {
   appointments: [],
   userDetails: {},
   error: false,
-  loading: true,
+  loading: false,
 };
 
 // synchronous actions
