@@ -21,3 +21,9 @@ export const postRequest = async (route, data) => fetch(endpoint + route, {
   },
   body: JSON.stringify(data),
 }).then((response) => response);
+
+export const postRequestWithFormData = async (route, data) => fetch(endpoint + route, {
+  method: 'POST',
+  mode: 'cors',
+  body: data,
+}).then((response) => response.json());
