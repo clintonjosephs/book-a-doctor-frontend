@@ -22,6 +22,12 @@ export const postRequest = async (route, data) => fetch(endpoint + route, {
   body: JSON.stringify(data),
 }).then((response) => response);
 
+export const postRequestWithFormData = async (route, data) => fetch(endpoint + route, {
+  method: 'POST',
+  mode: 'cors',
+  body: data,
+}).then((response) => response.json());
+
 export const getOneDoctor = (id) => {
   const resultFetch = fetch(`${endpoint}doctors/${id}`, {
     method: 'GET',
@@ -30,8 +36,7 @@ export const getOneDoctor = (id) => {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${StorageManager.getToken()}`,
     },
-  })
-    .then((res) => res.json());
+  }).then((res) => res.json());
 
   return resultFetch;
 };
