@@ -23,8 +23,14 @@ const Welcome = () => {
       exit={{ y: 1000, opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      { doctors.map(({ id, name }) => (
-        <div key={id}>{name}</div>
+      { doctors.map(({
+        id, name, imageUrl, description,
+      }) => (
+        <div key={id}>
+          <img src={imageUrl} width={150} height={150} alt="doctor" />
+          <div>{name}</div>
+          <div>{description}</div>
+        </div>
       )) }
     </AnimateWrapper>
   );
