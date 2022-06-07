@@ -35,3 +35,11 @@ export const getOneDoctor = (id) => {
 
   return resultFetch;
 };
+
+export const addDoctorApi = async (route, data) => fetch(endpoint + route, {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${StorageManager.getToken().token}`,
+  },
+  body: data,
+}).then((response) => response);

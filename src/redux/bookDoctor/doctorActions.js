@@ -1,6 +1,7 @@
 // action addresses
 const GET_ALL_DOCTORS = 'doctors/GET_ALL_DOCTORS';
 const GET_DOCTOR = 'doctors/GET_DOCTOR';
+const ADD_DOCTOR = 'doctors/ADD_DOCTOR';
 const API_ERROR = 'doctors/API_ERROR';
 const USER_DETAILS = 'doctors/USER_DETAILS';
 const API_LOADING = 'doctors/API_LOADING';
@@ -26,6 +27,11 @@ export const loadOneDoctor = (payload) => ({
   payload,
 });
 
+export const addOneDoctor = (payload) => ({
+  type: ADD_DOCTOR,
+  payload,
+});
+
 export const apiErrors = (payload) => ({
   type: API_ERROR,
   payload,
@@ -48,6 +54,10 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
       return { ...state, doctors: payload };
     case GET_DOCTOR:
       return { ...state, doctor: payload };
+    case ADD_DOCTOR: {
+      const doctors = [...state.doctors, payload];
+      return { ...state, doctors };
+    }
     case API_ERROR:
       return { ...state, error: payload };
     case API_LOADING:

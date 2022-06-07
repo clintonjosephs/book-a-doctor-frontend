@@ -1,4 +1,6 @@
-import { getRequest, postRequest, getOneDoctor } from '../../helpers/api/call';
+import {
+  getRequest, postRequest, getOneDoctor, addDoctorApi,
+} from '../../helpers/api/call';
 import StorageManager from '../../helpers/format/StorageManager';
 import * as actions from './doctorActions';
 
@@ -39,6 +41,24 @@ export const accountLogin = (data) => async (dispatch) => {
         message = { message: 'Login successful, redirecting ...', status: true };
       } else {
         message = { message: json.error_message, status: false };
+      }
+    });
+  return message;
+};
+
+export const addDoctorThunk = (data) => async (dispatch) => {
+  let message = '';
+  dispatch(actions.loading());
+  await addDoctorApi('doctors', data).then((response) => response.json())
+    .then((json) => {
+      dispatch(actions.apiErrors(false));
+      dispatch(actions.loading());
+      if (json.status < 300) {
+        console.log(json);
+        dispatch(actions.addOneDoctor(json));
+        message = { message: 'Doctor was created succesfully', status: true };
+      } else {
+        message = { message: json, status: false };
       }
     });
   return message;
