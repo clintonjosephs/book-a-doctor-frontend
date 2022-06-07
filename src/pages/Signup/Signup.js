@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import FormInput from './FormInput';
-import { signupDispatcher } from '../../redux/signup/signup';
+import { signupDispatcher } from '../../redux/user/userThunks';
 
 import styles from '../Login/Login.module.css';
 
@@ -13,8 +13,8 @@ const Signup = () => {
 
   const dispatch = useDispatch();
 
-  const signupState = useSelector((state) => state.signupReducer.signup || false);
-  const errorMessages = useSelector((state) => state.signupReducer.errorMessages || []);
+  const signupState = useSelector((state) => state.userReducer.signup || false);
+  const errorMessages = useSelector((state) => state.userReducer.errorMessages || []);
 
   const [values, setValues] = useState({
     name: '',
