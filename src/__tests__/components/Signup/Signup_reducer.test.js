@@ -1,23 +1,20 @@
-import signupReducer, { SIGNUP_SUCCESS, SIGNUP_FAILURE, signupDispatcher } from '../../../redux/signup/signup';
+import userReducer, { SIGNUP_SUCCESS, SIGNUP_FAILURE } from '../../../redux/user/userActions';
+import { signupDispatcher } from '../../../redux/user/userThunks';
 
-jest.mock('../../../helpers/api/call');
+jest.mock('../../../__mocks__/call');
 
 describe('Signup actions', () => {
   it('SIGNUP_SUCCESS', () => {
     const state = {};
-    const newState = signupReducer(state, {
+    const newState = userReducer(state, {
       type: SIGNUP_SUCCESS,
-      payload: {
-        user_details: { name: 'test', email: 'test@test.fr', role: 'user' },
-      },
+      payload: { userDetails: { name: 'test', email: 'test@test.fr', role: 'user' } },
     });
 
     expect(newState).toEqual({
       ...state,
       signup: true,
-      payload: {
-        user_details: { name: 'test', email: 'test@test.fr', role: 'user' },
-      },
+      userDetails: { name: 'test', email: 'test@test.fr', role: 'user' },
     });
   });
 
