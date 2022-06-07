@@ -1,20 +1,50 @@
 .doctorsCarousel {
-   height: 100vh;
-   margin-left: 20rem;
+   margin-left: 15rem;
+   margin-right: 5rem;
    display: flex;
    justify-content: center;
    align-items: center;
 }
 
+.top {
+    text-align: center;
+    margin-left: 15rem;
+    margin-right: 5rem;
+    margin-top: 2rem;
+}
+
+.slideImg {
+  border-radius: 20px;
+  min-width: 10rem;
+  min-height: 20rem;
+}
+
 .docName {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     font-weight: lighter;
     text-align: center;
     margin: 1rem;
 }
 
 .docDescription {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.7rem;
+    color: #9EA4B0;
+}
+
+.carouselItem {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.line {
+    width: 7rem;
+    border: solid 1px #9EA4B0;
+    align-self: center;
+    margin: 1rem;
 }
 
 .doctorsCarousel ul {
@@ -27,12 +57,25 @@
 
 .doctorsCarousel ul li {
     margin: 5rem;
+    cursor: pointer;
+}
+
+.social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.social img {
+    width: 3rem;
+    height: 3rem;
+    margin: 5px;
 }
 
 
 @media (max-width: 768px) {
     .doctorsCarousel {
-        margin-left: 0;
+        margin: 1rem;
     }
 
     .doctorsCarousel ul {
@@ -42,4 +85,17 @@
     .doctorsCarousel ul li {
         margin: 0rem;
     }
+
+    .top {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .slideImg {
+        border-radius: 0;
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+      }
+    
 }
