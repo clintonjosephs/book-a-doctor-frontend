@@ -11,8 +11,6 @@ let fetched = false;
 const Welcome = () => {
   const dispatch = useDispatch();
   const { doctors, loading } = useSelector((state) => state.bookDoctorReducer);
-  const displayDoctors = [doctors[1], doctors[2], doctors[3]];
-
   useEffect(() => {
     if (!fetched) {
       dispatch(fetchAllDoctors());
@@ -26,6 +24,8 @@ const Welcome = () => {
   if (doctors.length === 0 && !loading) {
     return <h2>No doctors available at the moment</h2>;
   }
+
+  const displayDoctors = [doctors[1], doctors[2], doctors[3]];
 
   return (
     <AnimateWrapper

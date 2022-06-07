@@ -1,5 +1,6 @@
 import { getRequest, postRequest, getOneDoctor } from '../../helpers/api/call';
 import StorageManager from '../../helpers/format/StorageManager';
+import { loginSuccess } from '../user/userActions';
 import * as actions from './doctorActions';
 
 export const fetchAllDoctors = () => async (dispatch) => {
@@ -35,7 +36,7 @@ export const accountLogin = (data) => async (dispatch) => {
       dispatch(actions.loading());
       if (!json.error) {
         StorageManager.setToken(json.token, json.exp);
-        dispatch(actions.userDetails(json.user_details));
+        dispatch(loginSuccess(json.user_details));
         message = { message: 'Login successful, redirecting ...', status: true };
       } else {
         message = { message: json.error_message, status: false };

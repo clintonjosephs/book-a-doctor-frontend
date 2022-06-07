@@ -10,7 +10,6 @@ const bookDoctorState = {
   doctors: [],
   doctor: [],
   appointments: [],
-  userDetails: {},
   error: false,
   loading: false,
 };
@@ -35,10 +34,6 @@ export const loading = () => ({
   type: API_LOADING,
 });
 
-export const userDetails = (payload) => ({
-  type: USER_DETAILS,
-  payload,
-});
 // ... other synchronous actions goes here
 
 // reducer
