@@ -42,11 +42,11 @@ function AddDoctor() {
         <div className={classes.line} />
         <div className={`${status === true ? classes.success : classes.failure}`}>{message}</div>
         <form onSubmit={(e) => handleSubmit(e)}>
-          <input type="text" name="name" id="name" placeholder="Name" />
-          <input type="text" name="specialization" id="specialization" placeholder="Specialization" />
-          <input type="text" name="city" id="city" placeholder="City" />
-          <input type="text" name="description" id="description" placeholder="Description" />
-          <input type="number" name="cost_per_day" id="cost_per_day" placeholder="Cost per day" />
+          <input type="text" name="name" id="name" placeholder="Name" required />
+          <input type="text" name="specialization" id="specialization" placeholder="Specialization" required />
+          <input type="text" name="city" id="city" placeholder="City" required />
+          <input type="text" name="description" id="description" placeholder="Description" required />
+          <input type="number" name="cost_per_day" id="cost_per_day" placeholder="Cost per day" required />
           <input type="file" name="image" id="image" placeholder="Image" />
           <div className={classes.flex}>
             <div>
@@ -54,8 +54,8 @@ function AddDoctor() {
             </div>
             <div>
               {
-               loading ? <button type="submit" className={classes.formSubmitBtn}>Submit</button> : <button type="button" className={classes.formSubmitBtn}>Processing ...</button>
-             }
+                loading ? <button type="submit" className={classes.formSubmitBtn}>Submit</button> : <button type="button" className={classes.formSubmitBtn}>Processing ...</button>
+              }
             </div>
           </div>
         </form>
