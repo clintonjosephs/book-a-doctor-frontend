@@ -9,7 +9,7 @@ import styles from './Welcome.module.css';
 
 let fetched = false;
 const Welcome = () => {
-  const [current, setCurrent] = useState(1);
+  const [current, setCurrent] = useState(0);
 
   const dispatch = useDispatch();
   const {
