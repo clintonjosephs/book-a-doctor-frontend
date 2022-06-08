@@ -5,8 +5,9 @@ import * as actions from './doctorActions';
 export const fetchAllDoctors = () => async (dispatch) => {
   try {
     dispatch(actions.loading());
-    const response = await getRequest('doctors/index');
-    dispatch(actions.loadAllDoctors(response.json()));
+    const response = await getRequest('doctors');
+    const responsejson = await response.json();
+    dispatch(actions.loadAllDoctors(responsejson));
     dispatch(actions.loading());
   } catch (err) {
     dispatch(actions.apiErrors(true));
@@ -29,7 +30,8 @@ export const fetchOneDoctor = (id) => async (dispatch) => {
 export const accountLogin = (data) => async (dispatch) => {
   let message = '';
   dispatch(actions.loading());
-  await postRequest('users/login', data).then((response) => response.json())
+  await postRequest('users/login', data)
+    .then((response) => response.json())
     .then((json) => {
       dispatch(actions.apiErrors(false));
       dispatch(actions.loading());
@@ -42,4 +44,24 @@ export const accountLogin = (data) => async (dispatch) => {
       }
     });
   return message;
+};
+
+export const setCurrentDoctorDispatcher = (id) => async (dispatch) => {
+  const response = await getOneDoctor(id);
+  if (!response.error) dispatch(actions.setCurrentDoctor(response));
+};
+
+export const addAppointmentDispatcher = (id, dateAppointment) => async (dispatch) => {
+  const responseToJson = await (
+    await postRequest('appointments', {
+      doctor_id: id,
+      date_of_appointment: dateAppointment,
+    })
+  ).json();
+
+  if (responseToJson.error) {
+    dispatch(actions.addAppointmentFailure(responseToJson.error_message));
+  } else {
+    dispatch(actions.addAppointment(responseToJson.data));
+  }
 };
