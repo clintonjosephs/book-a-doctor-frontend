@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signup renders correctly 1`] = `
+<section
+  className="loginContainer"
+>
+  <div
+    className="doctor shadow"
+  >
+    <h1>
+      Add a doctor
+    </h1>
+    <div
+      className="line"
+    />
+    <div
+      className="failure"
+    >
+      
+    </div>
+    <form
+      onSubmit={[Function]}
+    >
+      <input
+        id="name"
+        name="name"
+        placeholder="Name"
+        type="text"
+      />
+      <input
+        id="specialization"
+        name="specialization"
+        placeholder="Specialization"
+        type="text"
+      />
+      <input
+        id="city"
+        name="city"
+        placeholder="City"
+        type="text"
+      />
+      <input
+        id="description"
+        name="description"
+        placeholder="Description"
+        type="text"
+      />
+      <input
+        id="cost_per_day"
+        name="cost_per_day"
+        placeholder="Cost per day"
+        type="number"
+      />
+      <input
+        id="image"
+        name="image"
+        placeholder="Image"
+        type="file"
+      />
+      <div
+        className="flex"
+      >
+        <div>
+          <button
+            className="formSubmitBtn"
+            onClick={[Function]}
+            type="button"
+          >
+            Back
+          </button>
+        </div>
+        <div>
+          <button
+            className="formSubmitBtn"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+`;
