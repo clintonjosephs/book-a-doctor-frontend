@@ -1,4 +1,6 @@
-import { getRequest, postRequest, getOneDoctor, addDoctorApi } from '../../helpers/api/call';
+import {
+  getRequest, postRequest, getOneDoctor, addDoctorApi,
+} from '../../helpers/api/call';
 import StorageManager from '../../helpers/format/StorageManager';
 import * as actions from './doctorActions';
 
