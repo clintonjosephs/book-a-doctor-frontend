@@ -57,7 +57,7 @@ export const addDoctorThunk = (data) => async (dispatch) => {
         dispatch(actions.addOneDoctor(json));
         message = { message: 'Doctor was created succesfully', status: true };
       } else {
-        message = { message: 'Error', status: false };
+        message = { message: 'Error in validations', status: false };
       }
     });
   return message;

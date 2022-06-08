@@ -29,7 +29,10 @@ function AddDoctor() {
     const data = formData(event);
     const response = await dispatch(addDoctorThunk(data));
     setMessage(response);
-    event.target.reset();
+    if (response.status) event.target.reset();
+    setTimeout(() => {
+      setMessage('');
+    }, 5000);
   };
 
   return (
