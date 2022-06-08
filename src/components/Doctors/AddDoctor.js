@@ -1,13 +1,17 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addDoctorThunk } from '../../redux/bookDoctor/doctorThunks';
+import classes from './AddDoctor.module.css';
 
 function AddDoctor() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { loading } = useSelector((state) => state.bookDoctorReducer);
   const [info, setMessage] = useState({ message: '', status: false });
   const { message, status } = info;
+
+  const goBack = () => navigate('/');
 
   function formData(event) {
     const data = new FormData();
@@ -24,50 +28,37 @@ function AddDoctor() {
     event.preventDefault();
     const data = formData(event);
     const response = await dispatch(addDoctorThunk(data));
-    if (response.status) {
-      setMessage(response);
-    } else {
-      setMessage(response);
-    }
+    setMessage(response);
+    event.target.reset();
   };
 
-  console.log(message, status);
-
   return (
-    <div>
-      <h1>Add a doctor</h1>
-      {/* <div>{message}</div>
-      <div>{status}</div> */}
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label htmlFor="name">name</label>
-        <input type="text" name="name" id="name" />
-        <br />
+    <section className={classes.loginContainer}>
+      <div className={`${classes.doctor} ${classes.shadow}`}>
+        <h1>Add a doctor</h1>
+        <div className={classes.line} />
+        <div className={`${status === true ? classes.success : classes.failure}`}>{message}</div>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <input type="text" name="name" id="name" placeholder="Name" />
+          <input type="text" name="specialization" id="specialization" placeholder="Specialization" />
+          <input type="text" name="city" id="city" placeholder="City" />
+          <input type="text" name="description" id="description" placeholder="Description" />
+          <input type="number" name="cost_per_day" id="cost_per_day" placeholder="Cost per day" />
+          <input type="file" name="image" id="image" placeholder="Image" />
+          <div className={classes.flex}>
+            <div>
+              <button type="button" onClick={goBack} className={classes.formSubmitBtn}>Back</button>
+            </div>
+            <div>
+              {
+               loading ? <button type="submit" className={classes.formSubmitBtn}>Submit</button> : <button type="button" className={classes.formSubmitBtn}>Processing ...</button>
+             }
+            </div>
+          </div>
+        </form>
+      </div>
 
-        <label htmlFor="specialization">specialization</label>
-        <input type="text" name="specialization" id="specialization" />
-        <br />
-
-        <label htmlFor="city">city</label>
-        <input type="text" name="city" id="city" />
-        <br />
-
-        <label htmlFor="description">description</label>
-        <input type="text" name="description" id="description" />
-        <br />
-
-        <label htmlFor="cost_per_day">Cost per day</label>
-        <input type="number" name="cost_per_day" id="cost_per_day" />
-        <br />
-
-        <label htmlFor="image">Image</label>
-        <input type="file" name="image" id="image" />
-        <br />
-
-        {
-          loading ? <button type="submit">Submit</button> : <button type="button">Processing ...</button>
-        }
-      </form>
-    </div>
+    </section>
   );
 }
 
