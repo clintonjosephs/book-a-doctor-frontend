@@ -1,4 +1,3 @@
-import { getRequest, postRequest, getOneDoctor } from '../../helpers/api/call';
 import { chunkArray } from '../../helpers/format/format';
 import {
   getRequest, postRequest, getOneDoctor, addDoctorApi,
