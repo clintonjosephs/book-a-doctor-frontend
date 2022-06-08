@@ -116,6 +116,20 @@
     margin: 10px;
 }
 
+.animate {
+    animation: createBox 2s;
+}
+  
+@keyframes createBox {
+    from {
+        transform: scale(0.7);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
 
 @media (max-width: 768px) {
     .doctorsCarousel {
