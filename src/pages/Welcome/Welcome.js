@@ -6,8 +6,6 @@ import CarouselItem from '../../components/Doctors/Carousel/CarouselItem';
 import AnimateWrapper from '../../components/AnimateWrapper';
 import styles from './Welcome.module.css';
 
-let fetched = false;
-
 const Welcome = () => {
   const [current, setCurrent] = useState(1);
 
@@ -19,10 +17,7 @@ const Welcome = () => {
   } = useSelector((state) => state.bookDoctorReducer);
 
   useEffect(() => {
-    if (!fetched) {
-      dispatch(fetchAllDoctors());
-      fetched = true;
-    }
+    dispatch(fetchAllDoctors());
   }, []);
 
   if (doctorsChunked.length === 0 && loading) {
@@ -53,7 +48,7 @@ const Welcome = () => {
       transition={{ duration: 0.8 }}
     >
       <div className={styles.top}>
-        <span>Available Doctors!</span>
+        <span><b>AVAILABLE DOCTORS</b></span>
         <p>Please select a doctor</p>
       </div>
       <section className={styles.doctorsCarousel}>
