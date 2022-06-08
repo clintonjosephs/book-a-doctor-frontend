@@ -2,20 +2,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDoctorThunk } from '../../redux/bookDoctor/doctorThunks';
-// import StorageManager from '../../helpers/format/StorageManager';
-
-// function addDoctorApi(data) {
-//   fetch('http://localhost:3001/v1/doctors', {
-//     method: 'POST',
-//     body: data,
-//     headers: {
-//       Authorization: `Bearer ${StorageManager.getToken().token}`,
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => console.log(data))
-//     .catch((error) => console.log(error));
-// }
 
 function AddDoctor() {
   const dispatch = useDispatch();
@@ -38,7 +24,6 @@ function AddDoctor() {
     event.preventDefault();
     const data = formData(event);
     const response = await dispatch(addDoctorThunk(data));
-    console.log(response);
     if (response.status) {
       setMessage(response);
     } else {

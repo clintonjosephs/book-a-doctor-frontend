@@ -53,12 +53,11 @@ export const addDoctorThunk = (data) => async (dispatch) => {
     .then((json) => {
       dispatch(actions.apiErrors(false));
       dispatch(actions.loading());
-      if (json.status < 300) {
-        console.log(json);
+      if (json.id) {
         dispatch(actions.addOneDoctor(json));
         message = { message: 'Doctor was created succesfully', status: true };
       } else {
-        message = { message: json, status: false };
+        message = { message: 'Error', status: false };
       }
     });
   return message;
