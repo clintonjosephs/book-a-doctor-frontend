@@ -1,16 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllDoctors } from '../../redux/bookDoctor/doctorThunks';
+import { updateCarouselState } from '../../redux/bookDoctor/doctorActions';
 import CarouselItem from '../../components/Doctors/Carousel/CarouselItem';
 import AnimateWrapper from '../../components/AnimateWrapper';
-import 'react-multi-carousel/lib/styles.css';
 import styles from './Welcome.module.css';
 
 let fetched = false;
 
 const Welcome = () => {
+  const [current, setCurrent] = useState(1);
+
   const dispatch = useDispatch();
-  const { doctors, loading } = useSelector((state) => state.bookDoctorReducer);
+  const {
+    currentCarouselState,
+    loading,
+    doctorsChunked,
+  } = useSelector((state) => state.bookDoctorReducer);
+
   useEffect(() => {
     if (!fetched) {
       dispatch(fetchAllDoctors());
@@ -18,14 +25,25 @@ const Welcome = () => {
     }
   }, []);
 
-  if (doctors.length === 0 && loading) {
+  if (doctorsChunked.length === 0 && loading) {
     return <h2>Loading</h2>;
   }
-  if (doctors.length === 0 && !loading) {
+
+  if (doctorsChunked.length === 0 && !loading) {
     return <h2>No doctors available at the moment</h2>;
   }
 
-  const displayDoctors = [doctors[1], doctors[2], doctors[3]];
+  const { length } = doctorsChunked;
+
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+    dispatch(updateCarouselState(current));
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+    dispatch(updateCarouselState(current));
+  };
 
   return (
     <AnimateWrapper
@@ -35,23 +53,31 @@ const Welcome = () => {
       transition={{ duration: 0.8 }}
     >
       <div className={styles.top}>
-        <h1>Available Doctors</h1>
-        <span>Professionals ready to serve you</span>
+        <span>Available Doctors!</span>
+        <p>Please select a doctor</p>
       </div>
       <section className={styles.doctorsCarousel}>
+        <button type="button" onClick={prevSlide} className={`${styles.prev} ${styles.direction}`}>
+          <i className="fa-solid fa-caret-left" />
+        </button>
         <ul className={styles.carouselWrapper}>
-          { displayDoctors.map(({
+          { currentCarouselState && currentCarouselState.map(({
             id, name, imageUrl, description,
           }) => (
             <CarouselItem
               key={id}
               name={name}
               imageUrl={imageUrl}
+              id={id}
               description={description}
             />
           )) }
         </ul>
+        <button type="button" onClick={nextSlide} className={`${styles.next} ${styles.direction}`}>
+          <i className="fa-solid fa-caret-right" />
+        </button>
       </section>
+
     </AnimateWrapper>
   );
 };

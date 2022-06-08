@@ -4,6 +4,8 @@ const GET_DOCTOR = 'doctors/GET_DOCTOR';
 const API_ERROR = 'doctors/API_ERROR';
 const USER_DETAILS = 'doctors/USER_DETAILS';
 const API_LOADING = 'doctors/API_LOADING';
+const CHUNKED_DOCTORS = 'doctors/CHUNKED_DOCTORS';
+const CAROUSEL_STATE = 'doctors/CAROUSEL_STATE';
 
 // initial state
 const bookDoctorState = {
@@ -12,6 +14,8 @@ const bookDoctorState = {
   appointments: [],
   error: false,
   loading: false,
+  doctorsChunked: [],
+  currentCarouselState: [],
 };
 
 // synchronous actions
@@ -34,6 +38,16 @@ export const loading = () => ({
   type: API_LOADING,
 });
 
+export const loadChunkedDoctors = (payload) => ({
+  type: CHUNKED_DOCTORS,
+  payload,
+});
+
+export const updateCarouselState = (payload) => ({
+  type: CAROUSEL_STATE,
+  payload,
+});
+
 // ... other synchronous actions goes here
 
 // reducer
@@ -49,6 +63,10 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
       return { ...state, loading: !state.loading };
     case USER_DETAILS:
       return { ...state, userDetails: payload };
+    case CHUNKED_DOCTORS:
+      return { ...state, doctorsChunked: [...payload], currentCarouselState: [...payload[0]] };
+    case CAROUSEL_STATE:
+      return { ...state, currentCarouselState: [...state.doctorsChunked[payload]] };
     default:
       return state;
   }

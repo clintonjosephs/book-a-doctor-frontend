@@ -1,4 +1,5 @@
 import { getRequest, postRequest, getOneDoctor } from '../../helpers/api/call';
+import { chunkArray } from '../../helpers/format/format';
 import StorageManager from '../../helpers/format/StorageManager';
 import { loginSuccess } from '../user/userActions';
 import * as actions from './doctorActions';
@@ -8,6 +9,8 @@ export const fetchAllDoctors = () => async (dispatch) => {
     dispatch(actions.loading());
     const response = await getRequest('doctors').then((data) => data.json());
     dispatch(actions.loadAllDoctors(response.data));
+    const chunkedDoctors = chunkArray(response.data);
+    dispatch(actions.loadChunkedDoctors(chunkedDoctors));
     dispatch(actions.loading());
   } catch (err) {
     dispatch(actions.apiErrors(true));
