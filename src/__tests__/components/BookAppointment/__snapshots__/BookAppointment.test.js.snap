@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookAppointment renders correctly 1`] = `
+<section
+  className="book_appointment_container"
+>
+  <div
+    className="book_appointment"
+  >
+    <h1
+      className="h1"
+    >
+      Book an Appointment 
+    </h1>
+    <form
+      onSubmit={[Function]}
+    >
+      <select
+        aria-label="doctor_name"
+        className="inputs"
+        onChange={[Function]}
+      />
+      <input
+        aria-label="city"
+        className="disabled"
+        disabled={true}
+        type="text"
+        value=""
+      />
+      <input
+        className="inputs"
+        id="date_appointment"
+        onChange={[Function]}
+        required={true}
+        type="date"
+      />
+      <button
+        type="submit"
+      >
+        Reserve
+      </button>
+    </form>
+  </div>
+</section>
+`;

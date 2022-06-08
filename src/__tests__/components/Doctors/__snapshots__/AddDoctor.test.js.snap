@@ -25,30 +25,35 @@ exports[`Signup renders correctly 1`] = `
         id="name"
         name="name"
         placeholder="Name"
+        required={true}
         type="text"
       />
       <input
         id="specialization"
         name="specialization"
         placeholder="Specialization"
+        required={true}
         type="text"
       />
       <input
         id="city"
         name="city"
         placeholder="City"
+        required={true}
         type="text"
       />
       <input
         id="description"
         name="description"
         placeholder="Description"
+        required={true}
         type="text"
       />
       <input
         id="cost_per_day"
         name="cost_per_day"
         placeholder="Cost per day"
+        required={true}
         type="number"
       />
       <input

@@ -60,6 +60,7 @@ exports[`Countries snapshot renders correctly 1`] = `
       >
         <button
           className="btn"
+          onClick={[Function]}
           type="button"
         >
           <i
