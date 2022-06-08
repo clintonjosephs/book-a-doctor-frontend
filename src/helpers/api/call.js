@@ -34,9 +34,17 @@ export const getOneDoctor = (id) => {
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${StorageManager.getToken()}`,
+      Authorization: `Bearer ${StorageManager.getToken().token}`,
     },
   }).then((res) => res.json());
 
   return resultFetch;
 };
+
+export const addDoctorApi = async (route, data) => fetch(endpoint + route, {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${StorageManager.getToken().token}`,
+  },
+  body: data,
+}).then((response) => response);
