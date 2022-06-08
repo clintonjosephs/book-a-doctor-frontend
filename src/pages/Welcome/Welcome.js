@@ -4,6 +4,7 @@ import { fetchAllDoctors } from '../../redux/bookDoctor/doctorThunks';
 import { updateCarouselState } from '../../redux/bookDoctor/doctorActions';
 import CarouselItem from '../../components/Doctors/Carousel/CarouselItem';
 import AnimateWrapper from '../../components/AnimateWrapper';
+import LoadingInfo from '../../components/Spinner';
 import styles from './Welcome.module.css';
 
 const Welcome = () => {
@@ -20,8 +21,10 @@ const Welcome = () => {
     dispatch(fetchAllDoctors());
   }, []);
 
-  if (doctorsChunked.length === 0 && loading) {
-    return <h2>Loading</h2>;
+  // doctorsChunked.length === 0 && loading
+
+  if (!loading) {
+    return <LoadingInfo />;
   }
 
   if (doctorsChunked.length === 0 && !loading) {

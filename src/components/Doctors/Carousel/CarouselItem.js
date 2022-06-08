@@ -16,7 +16,7 @@ const CarouselItem = ({
   };
   return (
     <li className={styles.carouselItem} onClick={redirect} aria-hidden="true">
-      <img src={imageUrl} alt="doctor" className={styles.slideImg} />
+      <img src={imageUrl} alt="doctor" className={`${styles.slideImg} ${styles.circle} ${styles.subA}`} />
       <div className={styles.docName}>{name}</div>
       <div className={styles.line} />
       <div className={styles.docDescription}>{description}</div>

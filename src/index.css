@@ -23,3 +23,12 @@ body {
   background-color: var(--white);
   font-family: var(--font);
 }
+
+.loadingInfo {
+  background: var(--secondary-color);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
