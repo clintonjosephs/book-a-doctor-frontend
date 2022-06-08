@@ -1,4 +1,4 @@
-import { getRequest, postRequest, getOneDoctor } from '../../helpers/api/call';
+import { getRequest, postRequest, getOneDoctor, addDoctorApi } from '../../helpers/api/call';
 import StorageManager from '../../helpers/format/StorageManager';
 import * as actions from './doctorActions';
 
@@ -64,4 +64,21 @@ export const addAppointmentDispatcher = (id, dateAppointment) => async (dispatch
   } else {
     dispatch(actions.addAppointment(responseToJson.data));
   }
+};
+export const addDoctorThunk = (data) => async (dispatch) => {
+  let message = '';
+  dispatch(actions.loading());
+  await addDoctorApi('doctors', data)
+    .then((response) => response.json())
+    .then((json) => {
+      dispatch(actions.apiErrors(false));
+      dispatch(actions.loading());
+      if (json.id) {
+        dispatch(actions.addOneDoctor(json));
+        message = { message: 'Doctor was created succesfully', status: true };
+      } else {
+        message = { message: 'Error in validations', status: false };
+      }
+    });
+  return message;
 };
