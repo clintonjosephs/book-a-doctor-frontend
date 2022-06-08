@@ -7,6 +7,7 @@ import AnimateWrapper from '../../components/AnimateWrapper';
 import LoadingInfo from '../../components/Spinner';
 import styles from './Welcome.module.css';
 
+let fetched = false;
 const Welcome = () => {
   const [current, setCurrent] = useState(1);
 
@@ -18,12 +19,13 @@ const Welcome = () => {
   } = useSelector((state) => state.bookDoctorReducer);
 
   useEffect(() => {
-    dispatch(fetchAllDoctors());
+    if (!fetched) {
+      dispatch(fetchAllDoctors());
+      fetched = true;
+    }
   }, []);
 
-  // doctorsChunked.length === 0 && loading
-
-  if (!loading) {
+  if (doctorsChunked.length === 0 && loading) {
     return <LoadingInfo />;
   }
 
