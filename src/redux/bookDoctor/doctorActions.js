@@ -16,7 +16,6 @@ const bookDoctorState = {
   userDetails: {},
   error: false,
   loading: true,
-  currentDoctor: null,
 };
 
 // synchronous actions
@@ -75,9 +74,9 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
     case USER_DETAILS:
       return { ...state, userDetails: payload };
     case SET_CURRENT_DOCTOR:
-      return { ...state, currentDoctor: payload };
+      return { ...state, doctor: payload };
     case ADD_APPOINTMENT:
-      return { ...state, currentDoctor: null, appointments: [...state.appointments, payload] };
+      return { ...state, doctor: null, appointments: [...state.appointments, payload] };
     case ADD_APPOINTMENT_FAILURE:
       return { ...state, error: true, message: payload };
     default:

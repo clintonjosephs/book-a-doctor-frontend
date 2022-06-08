@@ -9,7 +9,7 @@ function BookAppointment() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const currentDoctor = useSelector((state) => state.bookDoctorReducer.currentDoctor || null);
+  const currentDoctor = useSelector((state) => state.bookDoctorReducer.doctor[0] || null);
   const [dateAppointment, setDateAppointment] = useState('');
   const [selectedDoctorcity, setSelectedDoctorcity] = useState('');
   const [selectedDoctor, setSelectedDoctor] = useState('');
