@@ -4,6 +4,9 @@ const GET_DOCTOR = 'doctors/GET_DOCTOR';
 const API_ERROR = 'doctors/API_ERROR';
 const USER_DETAILS = 'doctors/USER_DETAILS';
 const API_LOADING = 'doctors/API_LOADING';
+const SET_CURRENT_DOCTOR = 'doctors/SET_CURRENT_DOCTOR';
+export const ADD_APPOINTMENT = 'doctors/ADD_APPOINTMENT';
+export const ADD_APPOINTMENT_FAILURE = 'doctors/ADD_APPOINTMENT_FAILURE';
 
 // initial state
 const bookDoctorState = {
@@ -13,6 +16,7 @@ const bookDoctorState = {
   userDetails: {},
   error: false,
   loading: true,
+  currentDoctor: null,
 };
 
 // synchronous actions
@@ -39,6 +43,22 @@ export const userDetails = (payload) => ({
   type: USER_DETAILS,
   payload,
 });
+
+export const setCurrentDoctor = (data) => ({
+  type: SET_CURRENT_DOCTOR,
+  payload: data,
+});
+
+export const addAppointment = (data) => ({
+  type: ADD_APPOINTMENT,
+  payload: data,
+});
+
+export const addAppointmentFailure = (data) => ({
+  type: ADD_APPOINTMENT,
+  payload: data,
+});
+
 // ... other synchronous actions goes here
 
 // reducer
@@ -54,6 +74,12 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
       return { ...state, loading: !state.loading };
     case USER_DETAILS:
       return { ...state, userDetails: payload };
+    case SET_CURRENT_DOCTOR:
+      return { ...state, currentDoctor: payload };
+    case ADD_APPOINTMENT:
+      return { ...state, currentDoctor: null, appointments: [...state.appointments, payload] };
+    case ADD_APPOINTMENT_FAILURE:
+      return { ...state, error: true, message: payload };
     default:
       return state;
   }
