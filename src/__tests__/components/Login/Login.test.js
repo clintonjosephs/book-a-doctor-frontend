@@ -4,7 +4,7 @@ import { cleanup } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import store from '../../../redux/store';
 import Login from '../../../pages/Login/Login';
-import bookDoctorReducer, * as actions from '../../../redux/bookDoctor/doctorActions';
+import userReducer, * as actions from '../../../redux/user/userActions';
 import UserData from '../../../__mocks__/UserData';
 
 const LoginProvider = () => (
@@ -28,17 +28,14 @@ describe('check login components', () => {
 
 describe('Test Login asynchronous actions', () => {
   // initial state
-  const initalState = {
-    doctors: [],
-    appointments: [],
+  const initialState = {
+    signup: false,
     userDetails: {},
-    error: false,
-    loading: true,
   };
 
-  const dataPush = bookDoctorReducer(
-    initalState,
-    actions.userDetails(UserData),
+  const dataPush = userReducer(
+    initialState,
+    actions.loginSuccess(UserData),
   );
 
   it('has user details', () => {

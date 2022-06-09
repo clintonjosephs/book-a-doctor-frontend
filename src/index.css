@@ -9,6 +9,7 @@
   --black: #000;
   --red: #f00;
   --font: 'Montserrat', sans-serif;
+  --dull: #9ea4b0;
 }
 
 * {
@@ -21,4 +22,13 @@ body {
   min-height: 100vh;
   background-color: var(--white);
   font-family: var(--font);
+}
+
+.loadingInfo {
+  background: var(--white);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

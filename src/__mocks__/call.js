@@ -1,3 +1,5 @@
+import DoctorsData from './DoctorsData';
+
 export const endpoint = '';
 
 export const postRequestWithFormData = async (path, index) => {
@@ -8,7 +10,10 @@ export const postRequestWithFormData = async (path, index) => {
       user_details: { name: 'test', email: 'test@test.fr', role: 'user' },
     };
   }
-  return { error: 'unauthorized', error_message: { email: ['has already been taken'] } };
+  return {
+    error: 'unauthorized',
+    error_message: { email: ['has already been taken'] },
+  };
 };
 
 export const postRequest = async (index) => {
@@ -26,3 +31,5 @@ export const postRequest = async (index) => {
     error_message: {},
   };
 };
+
+export const fetchAllDoctors = async () => DoctorsData;

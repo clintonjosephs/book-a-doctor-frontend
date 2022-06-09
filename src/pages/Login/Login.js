@@ -90,7 +90,7 @@ const Login = () => {
               Remember me?
             </div>
             {
-              loading ? <button type="submit" className={styles.formSubmitBtn}>Log in</button> : <button type="button" className={styles.formSubmitBtn}>Processing ...</button>
+              !loading ? <button type="submit" className={styles.formSubmitBtn}>Log in</button> : <button type="button" className={styles.formSubmitBtn}>Processing ...</button>
             }
 
             <div style={{ marginTop: '1rem' }}>
