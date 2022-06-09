@@ -57,7 +57,7 @@ const Welcome = () => {
         <p>Please select a doctor</p>
       </div>
       <section className={styles.doctorsCarousel}>
-        <button type="button" onClick={prevSlide} className={`${styles.prev} ${styles.direction}`}>
+        <button type="button" data-testid="previous" onClick={prevSlide} className={`${styles.prev} ${styles.direction}`}>
           <i className="fa-solid fa-caret-left" />
         </button>
         <ul className={styles.carouselWrapper}>
@@ -73,7 +73,7 @@ const Welcome = () => {
             />
           )) }
         </ul>
-        <button type="button" onClick={nextSlide} className={`${styles.next} ${styles.direction}`}>
+        <button type="button" data-testid="next" onClick={nextSlide} className={`${styles.next} ${styles.direction}`}>
           <i className="fa-solid fa-caret-right" />
         </button>
       </section>

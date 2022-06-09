@@ -49,13 +49,13 @@ describe('Welcome page actions', () => {
   it('Is able to chuck doctors data', () => {
     const chunked = chunkArray(DoctorsData);
     const state = bookDoctorReducer(initalState, {
-        type: CHUNKED_DOCTORS,
-        payload: chunked
+      type: CHUNKED_DOCTORS,
+      payload: chunked,
     });
 
     expect(state).toEqual({
-        ...state,
-        doctorsChunked: chunked,
-      });
+      ...state,
+      doctorsChunked: chunked,
+    });
   });
 });

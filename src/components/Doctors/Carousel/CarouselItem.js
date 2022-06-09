@@ -16,7 +16,12 @@ const CarouselItem = ({
   };
   return (
     <li className={styles.carouselItem} onClick={redirect} aria-hidden="true">
-      <img src={imageUrl} alt="doctor" className={`${styles.slideImg} ${styles.animate}`} />
+      <img
+        src={imageUrl}
+        alt="doctor"
+        className={`${styles.slideImg} ${styles.animate}`}
+        aria-label="doctor image"
+      />
       <div className={styles.docName}>{name}</div>
       <div className={styles.line} />
       <div className={styles.docDescription}>{description}</div>
@@ -34,7 +39,7 @@ CarouselItem.defaultProps = {
 };
 
 CarouselItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   imageUrl: PropTypes.string,

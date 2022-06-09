@@ -1,4 +1,4 @@
-import DoctorsData from "./DoctorsData";
+import DoctorsData from './DoctorsData';
 
 export const endpoint = '';
 
@@ -32,6 +32,4 @@ export const postRequest = async (index) => {
   };
 };
 
-export const fetchAllDoctors = async () => {
-  return DoctorsData;
-};
+export const fetchAllDoctors = async () => DoctorsData;

@@ -4,7 +4,7 @@ import { cleanup } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import store from '../../../redux/store';
 import Login from '../../../pages/Login/Login';
-import userReducer, * as actions from '../../../redux/user/userActions'
+import userReducer, * as actions from '../../../redux/user/userActions';
 import UserData from '../../../__mocks__/UserData';
 
 const LoginProvider = () => (
