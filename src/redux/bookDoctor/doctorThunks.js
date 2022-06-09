@@ -70,6 +70,7 @@ export const addAppointmentDispatcher = (id, dateAppointment) => async (dispatch
     dispatch(actions.addAppointment(responseToJson.data));
   }
 };
+
 export const addDoctorThunk = (data) => async (dispatch) => {
   let message = '';
   dispatch(actions.loading());

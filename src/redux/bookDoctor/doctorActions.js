@@ -1,12 +1,12 @@
 // action addresses
-const GET_ALL_DOCTORS = 'doctors/GET_ALL_DOCTORS';
+export const GET_ALL_DOCTORS = 'doctors/GET_ALL_DOCTORS';
 const GET_DOCTOR = 'doctors/GET_DOCTOR';
 const ADD_DOCTOR = 'doctors/ADD_DOCTOR';
 const API_ERROR = 'doctors/API_ERROR';
 const USER_DETAILS = 'doctors/USER_DETAILS';
 const API_LOADING = 'doctors/API_LOADING';
-const CHUNKED_DOCTORS = 'doctors/CHUNKED_DOCTORS';
-const CAROUSEL_STATE = 'doctors/CAROUSEL_STATE';
+export const CHUNKED_DOCTORS = 'doctors/CHUNKED_DOCTORS';
+export const CAROUSEL_STATE = 'doctors/CAROUSEL_STATE';
 const SET_CURRENT_DOCTOR = 'doctors/SET_CURRENT_DOCTOR';
 export const ADD_APPOINTMENT = 'doctors/ADD_APPOINTMENT';
 export const ADD_APPOINTMENT_FAILURE = 'doctors/ADD_APPOINTMENT_FAILURE';
