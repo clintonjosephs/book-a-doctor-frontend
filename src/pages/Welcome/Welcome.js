@@ -29,8 +29,15 @@ const Welcome = () => {
     return <LoadingInfo />;
   }
 
-  if (doctorsChunked.length === 0 && !loading) {
-    return <h2>No doctors available at the moment</h2>;
+  if (doctorsChunked.length > 0 && !loading) {
+    return (
+      <div className={styles.top}>
+        <span><b>AVAILABLE DOCTORS</b></span>
+        <p>Please select a doctor</p>
+
+        <div className={styles.noDoctors}>No Available doctors yet 😞 </div>
+      </div>
+    );
   }
 
   const { length } = doctorsChunked;
@@ -44,6 +51,8 @@ const Welcome = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
     dispatch(updateCarouselState(current));
   };
+
+  console.log(current);
 
   return (
     <AnimateWrapper
