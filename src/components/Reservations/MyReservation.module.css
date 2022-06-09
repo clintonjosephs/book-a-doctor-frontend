@@ -1,0 +1,38 @@
+.table {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.table th {
+  border: 1px solid black;
+  padding: 10px;
+  background-color: #97bf0f;
+  color: #fff;
+}
+
+.table td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.img {
+  border-radius: 20%;
+  width: 200px;
+}
+
+.button {
+  background-color: #97bf0f;
+  color: #fff;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #97bf0f;
+}
