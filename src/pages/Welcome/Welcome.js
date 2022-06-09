@@ -29,7 +29,7 @@ const Welcome = () => {
     return <LoadingInfo />;
   }
 
-  if (doctorsChunked.length > 0 && !loading) {
+  if (doctorsChunked.length === 0 && !loading) {
     return (
       <div className={styles.top}>
         <span><b>AVAILABLE DOCTORS</b></span>
