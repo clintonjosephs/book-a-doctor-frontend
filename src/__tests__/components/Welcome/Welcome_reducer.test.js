@@ -1,29 +1,32 @@
-import bookDoctorReducer, { GET_ALL_DOCTORS, CHUNKED_DOCTORS } 
-    from '../../../redux/bookDoctor/doctorActions';
+import { chunkArray } from '../../../helpers/format/format';
+import bookDoctorReducer, {
+  GET_ALL_DOCTORS,
+  CHUNKED_DOCTORS,
+} from '../../../redux/bookDoctor/doctorActions';
 import { fetchAllDoctors } from '../../../redux/bookDoctor/doctorThunks';
 import DoctorsData from '../../../__mocks__/DoctorsData';
-    
+
 jest.mock('../../../__mocks__/call');
 
 describe('Welcome page actions', () => {
-  it('GET_ALL_DOCTORS', () => {
-    const state = {
-        doctors: [],
-        doctor: [],
-        appointments: [],
-        error: false,
-        loading: false,
-        doctorsChunked: [],
-        currentCarouselState: [],
-      };
+  const initalState = {
+    doctors: [],
+    doctor: [],
+    appointments: [],
+    error: false,
+    loading: false,
+    doctorsChunked: [],
+    currentCarouselState: [],
+  };
 
-    const newState = bookDoctorReducer(state, {
+  it('GET_ALL_DOCTORS', () => {
+    const newState = bookDoctorReducer(initalState, {
       type: GET_ALL_DOCTORS,
       payload: DoctorsData,
     });
 
     expect(newState).toEqual({
-      ...state,
+      ...initalState,
       doctors: DoctorsData,
     });
   });
@@ -43,17 +46,16 @@ describe('Welcome page actions', () => {
     });
   });
 
-//   it('signup failure from the API', () => {
-//     const dispatch = jest.fn();
-//     const payload = {
-//       email: ['has already been taken'],
-//     };
+  it('Is able to chuck doctors data', () => {
+    const chunked = chunkArray(DoctorsData);
+    const state = bookDoctorReducer(initalState, {
+        type: CHUNKED_DOCTORS,
+        payload: chunked
+    });
 
-//     signupDispatcher()(dispatch).then(() => {
-//       expect(dispatch).toHaveBeenCalledWith({
-//         type: SIGNUP_FAILURE,
-//         payload,
-//       });
-//     });
-//   });
+    expect(state).toEqual({
+        ...state,
+        doctorsChunked: chunked,
+      });
+  });
 });
