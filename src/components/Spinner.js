@@ -1,13 +1,16 @@
 import React from 'react';
-import { BallTriangle } from 'react-loader-spinner';
+import { Oval } from 'react-loader-spinner';
 
 function LoadingInfo() {
   return (
     <section className="loadingInfo">
-      <BallTriangle
+      <Oval
         height="80"
         width="80"
-        color="green"
+        secondaryColor="green"
+        color="#ffb400"
+        ariaLabel="loading"
+        strokeWidth={4}
       />
     </section>
   );

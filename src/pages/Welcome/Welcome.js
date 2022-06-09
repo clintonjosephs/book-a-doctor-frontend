@@ -9,7 +9,7 @@ import styles from './Welcome.module.css';
 
 let fetched = false;
 const Welcome = () => {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(1);
 
   const dispatch = useDispatch();
   const {
@@ -34,7 +34,6 @@ const Welcome = () => {
       <div className={styles.top}>
         <span><b>AVAILABLE DOCTORS</b></span>
         <p>Please select a doctor</p>
-
         <div className={styles.noDoctors}>No Available doctors yet 😞 </div>
       </div>
     );
@@ -51,8 +50,6 @@ const Welcome = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
     dispatch(updateCarouselState(current));
   };
-
-  console.log(current);
 
   return (
     <AnimateWrapper
