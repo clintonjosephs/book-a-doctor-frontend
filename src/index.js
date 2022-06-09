@@ -4,12 +4,14 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import store from './redux/store';
 import './index.css';
+import Navbar from './components/Navigation/Navbar';
 import App from './App';
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
       <Router basename={process.env.PUBLIC_URL}>
+        <Navbar />
         <App />
       </Router>
     </React.StrictMode>
