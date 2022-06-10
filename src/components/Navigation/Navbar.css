@@ -27,7 +27,7 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 8px 0px 8px 16px;
+  padding: 8px 0 8px 16px;
   list-style: none;
   height: 60px;
 }
@@ -140,7 +140,7 @@ a.active {
   .user-info {
     height: 22vh;
   }
-  
+
   .navbar-toggle {
     display: flex;
     justify-content: end;
@@ -163,7 +163,4 @@ a.active {
   .logout {
     margin: 20px 40px;
   }
-
 }
-
-
