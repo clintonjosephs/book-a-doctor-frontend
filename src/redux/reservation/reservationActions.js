@@ -15,7 +15,7 @@ export const getReservationsFailure = (payload) => ({
 const reservationReducer = (state = initialStateReservation, action) => {
   switch (action.type) {
     case GET_ALL_REVERSATION:
-      return [...state, ...action.payload];
+      return [...action.payload];
     case GET_ALL_REVERSATION_ERROR:
       return [...state, ...action.payload];
     default:

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import style from './MyReservation.module.css';
 import { convertDateWithName } from '../../helpers/format/format';
@@ -8,11 +8,11 @@ import getReservations from '../../redux/reservation/reservationThunks';
 function MyReservations() {
   const dispatch = useDispatch();
   const reservation = useSelector((state) => state.reservationReducer);
+  const [reservationState, setReservationState] = useState(reservation);
   useEffect(() => {
-    if (reservation.length === 0) {
-      dispatch(getReservations());
-    }
-  }, []);
+    dispatch(getReservations());
+    setReservationState(reservation);
+  }, [reservationState.length]);
 
   return (
     <section className={style.reservation}>
