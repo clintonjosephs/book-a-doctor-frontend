@@ -8,7 +8,18 @@ import styles from './list.module.css';
 function ListDoctors() {
   const doctors = useSelector((state) => state.bookDoctorReducer.doctors);
 
-
+  const headers = {
+    Authorization: `Bearer ${StorageManager.getToken().token}`,
+  };
+  const deleteDoc = (id) => {
+    axios.delete(`http://localhost:3001/v1/doctors/${id}`, { headers })
+      .then((response) => {
+        console.log(response);
+        if (response.data.message === 'Doctor deleted successfully') {
+        console.log(doctors.data)
+        }
+      });
+  };
 
   return (
     <>
