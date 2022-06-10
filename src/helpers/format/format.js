@@ -3,7 +3,7 @@ import StorageManager from './StorageManager';
 export const dateDiff = (date) => {
   const currentDate = new Date();
   const inputDate = new Date(date);
-  const diffTime = Math.abs(inputDate - currentDate);
+  const diffTime = currentDate - inputDate;
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return diffDays;
 };
@@ -21,7 +21,9 @@ export const chunkArray = (array) => {
 
 export const userStatus = () => {
   const auth = StorageManager.getToken();
-  if (auth.token === '' || !auth || (auth.token !== '' && dateDiff(auth.exp_date.toString()) > 1)) {
+  console.log(dateDiff(auth.exp_date.toString()));
+  if (auth.token === '' || !auth || (auth.token !== '' && dateDiff(auth.exp_date.toString()) === 1)) {
+    console.log('user status is false');
     return false;
   }
   return true;
