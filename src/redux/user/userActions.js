@@ -1,5 +1,6 @@
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
 const initialState = {
   signup: false,
@@ -13,6 +14,12 @@ const userReducer = (state = initialState, { type, payload }) => {
         ...state,
         signup: true,
         userDetails: payload.userDetails,
+      };
+    }
+    case LOGIN_SUCCESS: {
+      return {
+        ...state,
+        userDetails: payload,
       };
     }
     case SIGNUP_FAILURE: {
@@ -48,4 +55,9 @@ export const signupSuccess = (data) => ({
 export const signupFailure = (data) => ({
   type: SIGNUP_FAILURE,
   payload: data,
+});
+
+export const loginSuccess = (payload) => ({
+  type: LOGIN_SUCCESS,
+  payload,
 });

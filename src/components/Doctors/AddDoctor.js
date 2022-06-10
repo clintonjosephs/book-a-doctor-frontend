@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addDoctorThunk } from '../../redux/bookDoctor/doctorThunks';
 import classes from './AddDoctor.module.css';
+import form from '../../pages/Login/Login.module.css';
 
 function AddDoctor() {
   const dispatch = useDispatch();
@@ -37,10 +38,10 @@ function AddDoctor() {
 
   return (
     <section className={classes.loginContainer}>
-      <div className={`${classes.doctor} ${classes.shadow}`}>
+      <div className={`${classes.doctor} ${form.shadow}`}>
         <h1>Add a doctor</h1>
         <div className={classes.line} />
-        <div className={`${status === true ? classes.success : classes.failure}`}>{message}</div>
+        <div className={`${status === true ? form.success : form.failure}`}>{message}</div>
         <form onSubmit={(e) => handleSubmit(e)}>
           <input type="text" name="name" id="name" placeholder="Name" required />
           <input type="text" name="specialization" id="specialization" placeholder="Specialization" required />
@@ -50,11 +51,11 @@ function AddDoctor() {
           <input type="file" name="image" id="image" placeholder="Image" />
           <div className={classes.flex}>
             <div>
-              <button type="button" onClick={goBack} className={classes.formSubmitBtn}>Back</button>
+              <button type="button" onClick={goBack} className={form.formSubmitBtn}>Back</button>
             </div>
             <div>
               {
-                loading ? <button type="submit" className={classes.formSubmitBtn}>Submit</button> : <button type="button" className={classes.formSubmitBtn}>Processing ...</button>
+                !loading ? <button type="submit" className={form.formSubmitBtn}>Submit</button> : <button type="button" className={form.formSubmitBtn}>Processing ...</button>
               }
             </div>
           </div>

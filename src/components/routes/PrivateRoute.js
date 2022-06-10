@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Navbar from '../Navigation/Navbar';
 import { userStatus } from '../../helpers/format/format';
 
 const PrivateRoute = ({ children }) => {
@@ -12,7 +13,12 @@ const PrivateRoute = ({ children }) => {
     }
   }, []);
 
-  return children;
+  return (
+    <>
+      <Navbar />
+      {children}
+    </>
+  );
 };
 
 PrivateRoute.propTypes = {

@@ -8,8 +8,15 @@ export const dateDiff = (date) => {
   return diffDays;
 };
 
-export const blobToImage = () => {
+export const chunkArray = (array) => {
+  const end = 3;
+  const result = [];
+  const arrayCopy = [...array];
+  while (arrayCopy.length > 0) {
+    result.push(arrayCopy.splice(0, end));
+  }
 
+  return result;
 };
 
 export const userStatus = () => {

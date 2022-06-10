@@ -1,10 +1,12 @@
 // action addresses
-const GET_ALL_DOCTORS = 'doctors/GET_ALL_DOCTORS';
+export const GET_ALL_DOCTORS = 'doctors/GET_ALL_DOCTORS';
 const GET_DOCTOR = 'doctors/GET_DOCTOR';
 const ADD_DOCTOR = 'doctors/ADD_DOCTOR';
 const API_ERROR = 'doctors/API_ERROR';
 const USER_DETAILS = 'doctors/USER_DETAILS';
 const API_LOADING = 'doctors/API_LOADING';
+export const CHUNKED_DOCTORS = 'doctors/CHUNKED_DOCTORS';
+export const CAROUSEL_STATE = 'doctors/CAROUSEL_STATE';
 const SET_CURRENT_DOCTOR = 'doctors/SET_CURRENT_DOCTOR';
 export const ADD_APPOINTMENT = 'doctors/ADD_APPOINTMENT';
 export const ADD_APPOINTMENT_FAILURE = 'doctors/ADD_APPOINTMENT_FAILURE';
@@ -14,9 +16,10 @@ const bookDoctorState = {
   doctors: [],
   doctor: [],
   appointments: [],
-  userDetails: {},
   error: false,
-  loading: true,
+  loading: false,
+  doctorsChunked: [],
+  currentCarouselState: [],
 };
 
 // synchronous actions
@@ -44,8 +47,13 @@ export const loading = () => ({
   type: API_LOADING,
 });
 
-export const userDetails = (payload) => ({
-  type: USER_DETAILS,
+export const loadChunkedDoctors = (payload) => ({
+  type: CHUNKED_DOCTORS,
+  payload,
+});
+
+export const updateCarouselState = (payload) => ({
+  type: CAROUSEL_STATE,
   payload,
 });
 
@@ -83,6 +91,10 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
       return { ...state, loading: !state.loading };
     case USER_DETAILS:
       return { ...state, userDetails: payload };
+    case CHUNKED_DOCTORS:
+      return { ...state, doctorsChunked: [...payload], currentCarouselState: [...payload[0]] };
+    case CAROUSEL_STATE:
+      return { ...state, currentCarouselState: [...state.doctorsChunked[payload]] };
     case SET_CURRENT_DOCTOR:
       return { ...state, doctor: [payload] };
     case ADD_APPOINTMENT:

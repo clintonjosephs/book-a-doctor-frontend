@@ -7,8 +7,9 @@ import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import MyReservations from './components/Reservations/MyReservations';
 import PrivateRoute from './components/routes/PrivateRoute';
-import Welcome from './components/Welcome/Welcome';
+import Welcome from './pages/Welcome/Welcome';
 import NotFound from './pages/NotFound/NotFound';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const App = () => (
   <Routes>
