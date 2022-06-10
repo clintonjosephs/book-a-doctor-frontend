@@ -135,7 +135,7 @@ a.active {
   display: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 992px) {
   .show-menu {
     display: flex;
   }
