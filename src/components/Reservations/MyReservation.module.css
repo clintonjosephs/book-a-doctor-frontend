@@ -1,7 +1,8 @@
 .table {
   margin: 0 auto;
-  width: 100%;
+  width: 70%;
   text-align: center;
+  margin-left: 18rem;
 }
 
 .table th {
@@ -16,7 +17,7 @@
 
 .img {
   border-radius: 20%;
-  width: 200px;
+  width: 100px;
 }
 
 .button {
