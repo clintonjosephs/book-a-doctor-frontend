@@ -27,7 +27,7 @@ function MyReservations() {
           </tr>
         </thead>
         <tbody>
-          {reservation.length === 0
+          {reservation && reservation[0] === 'No appointments found'
             ? <tr><td>There is no Reservations</td></tr>
             : reservation.map((element) => (
               <tr key={element.id}>
