@@ -16,7 +16,7 @@ function ListDoctors() {
       .then((response) => {
         console.log(response);
         if (response.data.message === 'Doctor deleted successfully') {
-        console.log(doctors.data)
+          console.log(doctors.data);
         }
       });
   };
