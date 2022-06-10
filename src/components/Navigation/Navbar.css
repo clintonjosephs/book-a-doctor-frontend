@@ -167,9 +167,8 @@ a.active {
   .nav-menu ~ div section {
     z-index: 100;
   }
-  
+
   .nav-menu.active ~ div section {
     z-index: -100;
   }
-  
 }
