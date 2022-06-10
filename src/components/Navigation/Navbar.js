@@ -7,11 +7,13 @@ import { useSelector } from 'react-redux';
 import SidebarData from './SidebarData';
 import './Navbar.css';
 import StorageManager from '../../helpers/format/StorageManager';
+import { getUserData } from '../../helpers/format/userDataManager';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const user = useSelector((state) => state.userReducer.userDetails);
+  console.log(getUserData());
 
   const showSidebar = () => setSidebar(!sidebar);
   const getClass = ({ isActive }) => (isActive ? 'active' : '');

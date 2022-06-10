@@ -21,7 +21,7 @@ export const chunkArray = (array) => {
 
 export const userStatus = () => {
   const auth = StorageManager.getToken();
-  const userData = localStorage.getItem('userData');
+  const userData = localStorage.getItem('manage');
   if (auth.token === '' || !auth || (auth.token !== '' && dateDiff(auth.exp_date.toString()) === 1) || userData === null) {
     return false;
   }

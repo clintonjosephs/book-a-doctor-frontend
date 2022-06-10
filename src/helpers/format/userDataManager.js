@@ -22,10 +22,10 @@ export const decryptData = (data) => {
 
 export const setUserData = (userData) => {
   const storeData = encryptData(userData);
-  localStorage.setItem('userData', storeData);
+  localStorage.setItem('manage', storeData);
 };
 
 export const getUserData = () => {
-  const data = encryptData(localStorage.getItem('userData'));
-  return JSON.parse(data);
+  const data = decryptData(localStorage.getItem('manage'));
+  return data;
 };
