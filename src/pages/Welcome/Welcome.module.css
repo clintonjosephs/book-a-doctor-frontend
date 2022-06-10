@@ -38,6 +38,7 @@
   cursor: pointer;
   width: 4rem;
   height: 3rem;
+  opacity: 0.8;
 }
 
 .top {
