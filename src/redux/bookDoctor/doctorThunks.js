@@ -10,7 +10,7 @@ export const fetchAllDoctors = () => async (dispatch) => {
   try {
     dispatch(actions.loading());
     const response = await getRequest('doctors').then((data) => data.json());
-    dispatch(actions.loadAllDoctors(response.data));
+    dispatch(actions.loadAllDoctors(response));
     const chunkedDoctors = chunkArray(response.data);
     dispatch(actions.loadChunkedDoctors(chunkedDoctors));
     dispatch(actions.loading());
