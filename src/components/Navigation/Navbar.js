@@ -12,7 +12,6 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const user = useSelector((state) => state.userReducer.userDetails);
-  console.log(user);
 
   const showSidebar = () => setSidebar(!sidebar);
   const getClass = ({ isActive }) => (isActive ? 'active' : '');
@@ -42,14 +41,14 @@ function Navbar() {
               </div>
             </li>
             <li className="user-info">
-              <img src={user.imageUrl} alt="user" className="image" />
+              <img src={user.image_url} alt="user" className="image" />
               <p className="user-name">{user.name}</p>
             </li>
-            {SidebarData(user.role).map((e) => (
-              <li key={e.path} className={e.className}>
-                <NavLink to={e.path} className={getClass}>
-                  {e.icon}
-                  <span>{e.title}</span>
+            {SidebarData(user.role).map((data) => (
+              <li key={data.id} className={data.className}>
+                <NavLink to={data.path} className={getClass}>
+                  {data.icon}
+                  <span>{data.title}</span>
                 </NavLink>
               </li>
             ))}

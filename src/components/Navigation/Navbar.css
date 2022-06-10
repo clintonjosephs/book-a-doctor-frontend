@@ -1,8 +1,6 @@
 .navbar {
-  height: 80px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
+  position: fixed;
+  overflow: auto;
 }
 
 .menu-bars {
@@ -38,7 +36,7 @@
   text-decoration: none;
   color: #000;
   font-size: 18px;
-  width: 95%;
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -57,7 +55,7 @@
 
 .user-info {
   width: 100%;
-  height: 280px;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -116,7 +114,7 @@ span {
 
 .logout:hover {
   background-color: red;
-  transform: scale(1.2);
+  transform: scale(1.1);
   color: #fff;
 }
 
@@ -131,7 +129,16 @@ a.active {
 
 @media only screen and (max-width: 600px) {
   .show-menu {
-    display: block;
+    display: flex;
+  }
+
+  .nav-menu-items {
+    width: 100%;
+    background-color: #ffb400;
+  }
+
+  .user-info {
+    height: 22vh;
   }
   
   .navbar-toggle {
@@ -150,11 +157,11 @@ a.active {
     justify-content: start;
     margin-left: 30px;
     width: 100%;
-    gap: 50px;
+    gap: 40px;
   }
 
   .logout {
-    margin: 20px 50px;
+    margin: 20px 40px;
   }
 
 }
