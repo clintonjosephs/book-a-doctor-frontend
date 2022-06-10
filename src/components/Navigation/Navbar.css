@@ -23,6 +23,15 @@
   transition: 350ms;
 }
 
+.nav-menu ~ div section{
+  z-index: 100;
+}
+
+
+.nav-menu.active ~ div section{
+  z-index: -100;
+}
+
 .nav-text {
   display: flex;
   justify-content: start;
