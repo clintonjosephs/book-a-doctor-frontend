@@ -21,9 +21,7 @@ export const chunkArray = (array) => {
 
 export const userStatus = () => {
   const auth = StorageManager.getToken();
-  console.log(dateDiff(auth.exp_date.toString()));
   if (auth.token === '' || !auth || (auth.token !== '' && dateDiff(auth.exp_date.toString()) === 1)) {
-    console.log('user status is false');
     return false;
   }
   return true;
