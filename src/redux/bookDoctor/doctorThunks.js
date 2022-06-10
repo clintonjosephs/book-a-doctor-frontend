@@ -5,13 +5,12 @@ import {
 import StorageManager from '../../helpers/format/StorageManager';
 import { loginSuccess } from '../user/userActions';
 import * as actions from './doctorActions';
+import { setUserData } from '../../helpers/format/userDataManager';
 
 export const fetchAllDoctors = () => async (dispatch) => {
   try {
     dispatch(actions.loading());
     const response = await getRequest('doctors').then((data) => data.json());
-    console.log(response);
-    console.log('response is above here');
     dispatch(actions.loadAllDoctors(response.data));
     const chunkedDoctors = chunkArray(response.data);
     dispatch(actions.loadChunkedDoctors(chunkedDoctors));
@@ -44,6 +43,7 @@ export const accountLogin = (data) => async (dispatch) => {
       dispatch(actions.loading());
       if (!json.error) {
         StorageManager.setToken(json.token, json.exp);
+        setUserData(json.user_details);
         dispatch(loginSuccess(json.user_details));
         message = { message: 'Login successful, redirecting ...', status: true };
       } else {
