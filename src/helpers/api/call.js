@@ -48,3 +48,15 @@ export const addDoctorApi = async (route, data) => fetch(endpoint + route, {
   },
   body: data,
 }).then((response) => response);
+
+export const getAllReservation = async (route) => {
+  const rest = await fetch(endpoint + route, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${StorageManager.getToken().token}`,
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => json);
+  return rest;
+};

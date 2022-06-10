@@ -26,3 +26,11 @@ export const userStatus = () => {
   }
   return true;
 };
+
+export const convertDateWithName = (date) => {
+  const event = new Date(date);
+
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+
+  return event.toLocaleDateString('en-US', options);
+};
