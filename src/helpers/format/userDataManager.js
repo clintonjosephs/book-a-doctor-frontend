@@ -26,6 +26,10 @@ export const setUserData = (userData) => {
 };
 
 export const getUserData = () => {
-  const data = decryptData(localStorage.getItem('manage'));
-  return data;
+  let response = 'no data found';
+  const data = localStorage.getItem('manage');
+  if (data !== null) {
+    response = decryptData(data);
+  }
+  return response;
 };

@@ -10,16 +10,20 @@ import { getUserData } from '../../helpers/format/userDataManager';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
-
-  const user = getUserData();
-
-  const showSidebar = () => setSidebar(!sidebar);
-  const getClass = ({ isActive }) => (isActive ? 'active' : '');
   const navigate = useNavigate();
   const logout = () => {
     StorageManager.removeToken();
     navigate('/login');
   };
+
+  const user = getUserData();
+
+  if (user === 'no data found') {
+    logout();
+  }
+
+  const showSidebar = () => setSidebar(!sidebar);
+  const getClass = ({ isActive }) => (isActive ? 'active' : '');
 
   return (
     <>
