@@ -1,24 +1,14 @@
 import React from 'react';
-import axios from 'axios';
 import * as FaIcons from 'react-icons/fa';
-import { useSelector } from 'react-redux';
-import StorageManager from '../../helpers/format/StorageManager';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteDoctorThunk } from '../../redux/bookDoctor/doctorThunks';
 import styles from './list.module.css';
 
 function ListDoctors() {
   const doctors = useSelector((state) => state.bookDoctorReducer.doctors);
-
-  const headers = {
-    Authorization: `Bearer ${StorageManager.getToken().token}`,
-  };
+  const dispatch = useDispatch();
   const deleteDoc = (id) => {
-    axios.delete(`http://localhost:3001/v1/doctors/${id}`, { headers })
-      .then((response) => {
-        console.log(response);
-        if (response.data.message === 'Doctor deleted successfully') {
-          console.log(doctors.data);
-        }
-      });
+    dispatch(deleteDoctorThunk(id));
   };
 
   return (

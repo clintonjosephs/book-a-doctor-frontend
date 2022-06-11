@@ -1,6 +1,6 @@
 import { chunkArray } from '../../helpers/format/format';
 import {
-  getRequest, postRequest, getOneDoctor, addDoctorApi,
+  getRequest, postRequest, getOneDoctor, addDoctorApi, deleteDoctor,
 } from '../../helpers/api/call';
 import StorageManager from '../../helpers/format/StorageManager';
 import { loginSuccess } from '../user/userActions';
@@ -84,6 +84,23 @@ export const addDoctorThunk = (data) => async (dispatch) => {
         message = { message: 'Doctor was created succesfully', status: true };
       } else {
         message = { message: 'Error in validations', status: false };
+      }
+    });
+  return message;
+};
+
+export const deleteDoctorThunk = (id) => async (dispatch) => {
+  let message = '';
+  dispatch(actions.loading());
+  await deleteDoctor(`doctors/${id}`)
+    .then((response) => response.json())
+    .then((json) => {
+      dispatch(actions.loading());
+      if (json.message) {
+        dispatch(actions.deleteDoctor(id));
+        message = { message: json.message, status: true };
+      } else {
+        message = { message: json.error, status: false };
       }
     });
   return message;

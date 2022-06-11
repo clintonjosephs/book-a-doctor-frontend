@@ -1,6 +1,7 @@
 .listContainer{
   margin-left: 18rem;
   margin-top: 3rem;
+  padding: 2rem;
 }
 
 .listDoctor {
@@ -8,7 +9,7 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .list {
