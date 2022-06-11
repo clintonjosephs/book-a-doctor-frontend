@@ -108,7 +108,13 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
     case ADD_APPOINTMENT_FAILURE:
       return { ...state, error: true, message: payload };
     case DELETE_DOCTOR:
-      return { ...state, doctors: { ...state.doctors, data: state.doctors.data.filter((d) => d.id !== payload) } };
+      return {
+        ...state,
+        doctors: {
+          ...state.doctors,
+          data: state.doctors.data.filter((d) => d.id !== payload),
+        },
+      };
     default:
       return state;
   }
