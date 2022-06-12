@@ -32,7 +32,7 @@ function ListDoctors() {
                 />
               </div>
             </div>
-          )): <p className={styles.notification}>No Doctors</p>}
+          )) : <p>No Doctors 😔</p>}
         </div>
       </section>
     </>

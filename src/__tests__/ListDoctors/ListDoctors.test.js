@@ -15,17 +15,17 @@ const Wrapper = () => (
   </Provider>
 );
 const doctor = [{
-  city: "New Jearsy",
-costPerDay: 70,
-description: "Dr. Jane Doe is a nevrologiest who specializes in heart disease. She is a certified heart surgeon and a member of the American Heart Association.",
-id: "2",
-imageUrl: "http://localhost:3001/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d9d590deab090b564592db9bb1d5008f3a7c12ee/doctor2.jpg",
-name: "Dr. Jane Doe",
-specialization: "Nevrology"
-}]
+  city: 'New Jearsy',
+  costPerDay: 70,
+  description: 'Dr. Jane Doe is a nevrologiest who specializes in heart disease. She is a certified heart surgeon and a member of the American Heart Association.',
+  id: '2',
+  imageUrl: 'http://localhost:3001/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d9d590deab090b564592db9bb1d5008f3a7c12ee/doctor2.jpg',
+  name: 'Dr. Jane Doe',
+  specialization: 'Nevrology',
+}];
 global.fetch = (url) => Promise.resolve({
   json: () => Promise.resolve(
-  !url.includes('/2')?{data:doctor}: {message: 'Deleted'}
+    !url.includes('/2') ? { data: doctor } : { message: 'Deleted' },
   ),
 });
 describe('listDoctors Component', () => {
@@ -40,7 +40,7 @@ describe('listDoctors Component', () => {
   it('doctors should be removed on delete', async () => {
     render(<Wrapper />);
     fireEvent.click(screen.getByRole('button'));
-    await waitForElementToBeRemoved(screen.getByAltText('docs'), {timeout: 3000});
+    await waitForElementToBeRemoved(screen.getByAltText('docs'), { timeout: 3000 });
     expect(document.querySelectorAll('svg').length).toBe(0);
-  })
+  });
 });
