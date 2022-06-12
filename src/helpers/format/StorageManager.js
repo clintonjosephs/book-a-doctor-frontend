@@ -5,6 +5,5 @@ export default class StorageManager {
 
     static removeToken = () => {
       localStorage.clear('token');
-      localStorage.clear('userData');
     }
 }
