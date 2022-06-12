@@ -41,7 +41,7 @@ function Navbar() {
               </div>
             </li>
             <li className="user-info">
-              <img src={user.image_url} alt="user" className="image"/>
+              <img src={user.image_url} alt="user" className="image" />
               <p className="user-name">{user.name}</p>
             </li>
             {SidebarData(user.role).map((data) => (
