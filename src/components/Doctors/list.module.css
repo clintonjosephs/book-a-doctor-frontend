@@ -1,19 +1,19 @@
 .listContainer {
   margin-left: 18rem;
   margin-top: 3rem;
-  padding: 2rem;
 }
 
 .listDoctor {
   width: 90%;
-  display: flex;
-  justify-content: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .list {
-  width: 100%;
+  width: 300px;
+  padding: 10px 0px;
 }
 
 .docName {
@@ -45,5 +45,9 @@
     width: 90%;
     gap: 10px;
     padding: 2rem;
+  }
+
+  .list {
+    width: 100%;
   }
 }
