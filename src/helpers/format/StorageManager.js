@@ -3,5 +3,7 @@ export default class StorageManager {
 
     static setToken = (token, expiry) => localStorage.setItem('token', JSON.stringify({ token, exp_date: expiry }));
 
-    static removeToken = () => localStorage.clear('token');
+    static removeToken = () => {
+      localStorage.clear('token');
+    }
 }

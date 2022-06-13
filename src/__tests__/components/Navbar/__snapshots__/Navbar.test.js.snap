@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar Component should hide nav button 1`] = `
+<button
+  class="logout"
+  type="button"
+>
+  Logout
+</button>
+`;
+
+exports[`Navbar Component should render link if user is  logged in 1`] = `
+<span>
+  Doctors
+</span>
+`;
+
+exports[`Navbar Component should render link if user is  logged in 2`] = `
+<span>
+  Reservations
+</span>
+`;
+
+exports[`Navbar Component should render link if user is  logged in 3`] = `
+<span>
+  Book Appointments
+</span>
+`;

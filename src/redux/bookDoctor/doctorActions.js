@@ -2,6 +2,7 @@
 export const GET_ALL_DOCTORS = 'doctors/GET_ALL_DOCTORS';
 const GET_DOCTOR = 'doctors/GET_DOCTOR';
 const ADD_DOCTOR = 'doctors/ADD_DOCTOR';
+const DELETE_DOCTOR = 'doctors/DELETE_DOCTOR';
 const API_ERROR = 'doctors/API_ERROR';
 const USER_DETAILS = 'doctors/USER_DETAILS';
 const API_LOADING = 'doctors/API_LOADING';
@@ -43,8 +44,9 @@ export const apiErrors = (payload) => ({
   payload,
 });
 
-export const loading = () => ({
+export const loading = (payload) => ({
   type: API_LOADING,
+  payload,
 });
 
 export const loadChunkedDoctors = (payload) => ({
@@ -72,6 +74,11 @@ export const addAppointmentFailure = (data) => ({
   payload: data,
 });
 
+export const deleteDoctor = (data) => ({
+  type: DELETE_DOCTOR,
+  payload: data,
+});
+
 // ... other synchronous actions goes here
 
 // reducer
@@ -88,7 +95,7 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
     case API_ERROR:
       return { ...state, error: payload };
     case API_LOADING:
-      return { ...state, loading: !state.loading };
+      return { ...state, loading: payload };
     case USER_DETAILS:
       return { ...state, userDetails: payload };
     case CHUNKED_DOCTORS:
@@ -101,6 +108,14 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
       return { ...state, doctor: [], appointments: [...state.appointments, payload] };
     case ADD_APPOINTMENT_FAILURE:
       return { ...state, error: true, message: payload };
+    case DELETE_DOCTOR:
+      return {
+        ...state,
+        doctors: {
+          ...state.doctors,
+          data: state.doctors.data.filter((d) => d.id !== payload),
+        },
+      };
     default:
       return state;
   }

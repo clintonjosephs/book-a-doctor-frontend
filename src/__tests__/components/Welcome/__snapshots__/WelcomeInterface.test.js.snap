@@ -1,7 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`check login components matches actual design 1`] = `
-<h2>
-  No doctors available at the moment
-</h2>
+<div
+  className="top"
+>
+  <span>
+    <b>
+      AVAILABLE DOCTORS
+    </b>
+  </span>
+  <p>
+    Please select a doctor
+  </p>
+  <div
+    className="noDoctors"
+  >
+    No Available doctors yet 😞 
+  </div>
+</div>
 `;
