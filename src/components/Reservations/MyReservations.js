@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import style from './MyReservation.module.css';
+import * as FaIcons from 'react-icons/fa';
 import { convertDateWithName } from '../../helpers/format/format';
+import style from './MyReservation.module.css';
 
-import getReservations from '../../redux/reservation/reservationThunks';
+import getReservations, { deleteReservations } from '../../redux/reservation/reservationThunks';
 
 function MyReservations() {
   const dispatch = useDispatch();
-  const reservation = useSelector((state) => state.reservationReducer);
+  const reservation = useSelector((state) => state.reservationReducers.reservationReducer);
   const [reservationState, setReservationState] = useState(reservation);
   useEffect(() => {
     dispatch(getReservations());
@@ -16,30 +17,42 @@ function MyReservations() {
 
   return (
     <section className={style.reservation}>
-      <table className={style.table} id="table">
-        <thead>
-          <tr>
-            <th>Doctor Picture</th>
-            <th>Doctor Name</th>
-            <th>Doctor Special</th>
-            <th>Appointment Date</th>
-            <th>action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {reservation && reservation[0] === 'No appointments found'
-            ? <tr><td>There is no Reservations</td></tr>
-            : reservation.map((element) => (
-              <tr key={element.id}>
-                <td><img src={element.imageUrl} alt="doctors" className={style.img} /></td>
-                <td>{element.doctor.name}</td>
-                <td>{element.doctor.specialization}</td>
-                <td>{convertDateWithName(element.date_of_appointment)}</td>
-                <td><button type="button" className={style.button}>Cancel</button></td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+
+      <div className={style.table} id="table">
+        {reservation && reservation.includes('No appointments found') ? (
+          <div>
+            <span>There is no Reservations</span>
+          </div>
+        ) : (
+          reservation.map((element) => (
+            <div key={element.id} className={style.appointment}>
+              <div className={style.date_of_appointment}>
+                <FaIcons.FaCalendarAlt className="social-icons-date_of_appointment" />
+                {convertDateWithName(element.date_of_appointment)}
+              </div>
+
+              <div className={style.doctor_container_info}>
+                <img src={element.imageUrl} alt="doctors" className={style.img} />
+                <span>{element.doctor.name}</span>
+                <span>{element.doctor.specialization}</span>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  className={style.button}
+                  onClick={() => {
+                    dispatch(deleteReservations(element.id));
+                    dispatch(getReservations());
+                    setReservationState(reservation);
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
     </section>
   );
 }
