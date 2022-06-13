@@ -13,10 +13,6 @@ function MyReservations() {
     dispatch(getReservations());
     setReservationState(reservation);
   }, [reservationState.length]);
-  useEffect(() => {
-    dispatch(getReservations());
-    setReservationState(reservation);
-  }, [dispatch]);
 
   return (
     <section className={style.reservation}>
@@ -46,6 +42,7 @@ function MyReservations() {
                     onClick={() => {
                       dispatch(deleteReservations(element.id));
                       dispatch(getReservations());
+                      setReservationState(reservation);
                     }}
                   >
                     Cancel
