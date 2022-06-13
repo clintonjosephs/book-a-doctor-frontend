@@ -100,3 +100,15 @@ body {
 .book_appointment_container input:invalid[focused='true'] {
   border-color: red;
 }
+
+@media (max-width: 750px) {
+  .book_appointment {
+    width: 100%;
+  }
+
+  .book_appointment_container .inputs,
+  .book_appointment_container .disabled {
+    min-width: auto;
+    width: 100%;
+  }
+}
