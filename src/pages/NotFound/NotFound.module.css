@@ -1,5 +1,7 @@
 .notFound {
   background-color: var(--primary-color);
+  width: 100wh;
+  height: 100vh;
 }
 
 .mainbox {

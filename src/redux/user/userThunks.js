@@ -17,7 +17,6 @@ export const fetchUserDetails = () => async (dispatch) => {
     await getRequest('users/fetch_current_user')
       .then((response) => response.json())
       .then((json) => {
-        console.log(json);
         dispatch(actions.loginSuccess(json.data));
       });
   } catch (err) {
