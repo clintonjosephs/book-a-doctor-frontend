@@ -5,16 +5,15 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div>
+      <section
+        class="reservation"
+      >
         <table
           class="table"
           id="table"
         >
           <thead>
             <tr>
-              <th>
-                #
-              </th>
               <th>
                 Doctor Picture
               </th>
@@ -34,20 +33,19 @@ Object {
           </thead>
           <tbody />
         </table>
-      </div>
+      </section>
     </div>
   </body>,
   "container": <div>
-    <div>
+    <section
+      class="reservation"
+    >
       <table
         class="table"
         id="table"
       >
         <thead>
           <tr>
-            <th>
-              #
-            </th>
             <th>
               Doctor Picture
             </th>
@@ -67,7 +65,7 @@ Object {
         </thead>
         <tbody />
       </table>
-    </div>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

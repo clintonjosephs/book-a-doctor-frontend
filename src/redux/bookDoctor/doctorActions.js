@@ -44,8 +44,9 @@ export const apiErrors = (payload) => ({
   payload,
 });
 
-export const loading = () => ({
+export const loading = (payload) => ({
   type: API_LOADING,
+  payload,
 });
 
 export const loadChunkedDoctors = (payload) => ({
@@ -94,7 +95,7 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
     case API_ERROR:
       return { ...state, error: payload };
     case API_LOADING:
-      return { ...state, loading: !state.loading };
+      return { ...state, loading: payload };
     case USER_DETAILS:
       return { ...state, userDetails: payload };
     case CHUNKED_DOCTORS:
