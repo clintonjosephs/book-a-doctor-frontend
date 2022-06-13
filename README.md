@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/goldensquad-brown)
 
-# Book Appoinments Frontend
+# Book Appointments Frontend
 
-> Book Appoinments frontend is react forntend application for doctor book appoinemnts. This applications is responsive and users can load, create, and delete doctors and reservations. Users need to sign up or sign in to access application. They can sign up or sign in using the sign up and login forms.
+> Book Appointments frontend is react frontend application for doctor book appointments. This applications is responsive and users can load, create, and delete doctors and reservations. Users need to sign up or sign in to access application. They can sign up or sign in using the sign up and login forms.
 
 ## Link to the backend
 
