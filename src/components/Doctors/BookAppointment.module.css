@@ -120,3 +120,12 @@ body {
     padding: 20px;
   }
 }
+
+@media (max-width: 400px) {
+  .book_appointment_container .inputs,
+  .book_appointment_container .disabled {
+    min-width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
