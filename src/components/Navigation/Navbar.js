@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
-import { useSelector } from 'react-redux';
 import SidebarData from './SidebarData';
 import './Navbar.css';
 import StorageManager from '../../helpers/format/StorageManager';
+import { loading } from '../../redux/bookDoctor/doctorActions';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const logout = () => {
+    StorageManager.removeToken();
+    dispatch(loading(false));
+    navigate('/login');
+  };
 
   const user = useSelector((state) => state.userReducer.userDetails);
 
   const showSidebar = () => setSidebar(!sidebar);
   const getClass = ({ isActive }) => (isActive ? 'active' : '');
-  const navigate = useNavigate();
-  const logout = () => {
-    StorageManager.removeToken();
-    navigate('/login');
-  };
 
   return (
     <>
