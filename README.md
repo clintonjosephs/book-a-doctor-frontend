@@ -13,9 +13,9 @@
 
 > ***We are a group of five***
 1. Team 1 - [Clinton](https://github.com/clintonjosephs)
-2. Team 2 - [Mithi](https://github.com/Mithi-code)
-3. Team 3 - [Jihane](https://github.com/jaflih)
-4. Team 4 - [Nuri](https://github.com/Nuri1977)
+2. Team 2 - [Jihane](https://github.com/jaflih)
+3. Team 3 - [Nuri](https://github.com/Nuri1977)
+4. Team 4 - [Mithi](https://github.com/Mithi-code)
 5. Team 5 - [Atilla](https://github.com/AtillaTahak)
 
 ## Preview:
