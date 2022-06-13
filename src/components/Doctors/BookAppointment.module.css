@@ -3,7 +3,7 @@ body {
 }
 
 .book_appointment_container {
-  width: 100vw;
+  margin-left: 18rem;
   height: 100vh;
   background-image: linear-gradient(#97bf0fe3, #97bf0fe3), url('../../assets/images/login_bg.jpeg');
   display: flex;
@@ -101,14 +101,22 @@ body {
   border-color: red;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 992px) {
+  .book_appointment_container {
+    margin-left: 0;
+  }
+
   .book_appointment {
     width: 100%;
   }
 
   .book_appointment_container .inputs,
   .book_appointment_container .disabled {
-    min-width: auto;
     width: 100%;
+  }
+
+  .book_appointment_container form {
+    width: 100%;
+    padding: 20px;
   }
 }
