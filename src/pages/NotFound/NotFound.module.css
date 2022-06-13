@@ -47,12 +47,12 @@
   width: 75%;
 }
 
-a {
+.notFound a {
   text-decoration: none;
   color: var(--white);
 }
 
-a:hover {
+.notFound a:hover {
   text-decoration: underline;
 }
 

@@ -1,15 +1,22 @@
 import React, { useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { deleteDoctorThunk, fetchAllDoctors } from '../../redux/bookDoctor/doctorThunks';
 import styles from './list.module.css';
 
 function ListDoctors() {
   const doctors = useSelector((state) => state.bookDoctorReducer.doctors);
+  const user = useSelector((state) => state.userReducer.userDetails);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     if (!doctors.data) {
       dispatch(fetchAllDoctors());
+    }
+
+    if (user.role !== 'admin') {
+      navigate('/');
     }
   }, []);
   const deleteDoc = (id) => {
