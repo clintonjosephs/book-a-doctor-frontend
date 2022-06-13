@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './NotFound.module.css';
 
 const NotFound = () => (
@@ -13,7 +14,7 @@ const NotFound = () => (
         <p>
           Lets go
           {' '}
-          <a href="#home">home</a>
+          <Link to="/">home</Link>
           {' '}
           and try from there.
         </p>
