@@ -3,16 +3,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import style from './MyReservation.module.css';
 import { convertDateWithName } from '../../helpers/format/format';
 
-import getReservations from '../../redux/reservation/reservationThunks';
+import getReservations, { deleteReservations } from '../../redux/reservation/reservationThunks';
 
 function MyReservations() {
   const dispatch = useDispatch();
-  const reservation = useSelector((state) => state.reservationReducer);
+  const reservation = useSelector((state) => state.reservationReducers.reservationReducer);
   const [reservationState, setReservationState] = useState(reservation);
   useEffect(() => {
     dispatch(getReservations());
     setReservationState(reservation);
   }, [reservationState.length]);
+  useEffect(() => {
+    dispatch(getReservations());
+    setReservationState(reservation);
+  }, [dispatch]);
 
   return (
     <section className={style.reservation}>
@@ -35,7 +39,18 @@ function MyReservations() {
                 <td>{element.doctor.name}</td>
                 <td>{element.doctor.specialization}</td>
                 <td>{convertDateWithName(element.date_of_appointment)}</td>
-                <td><button type="button" className={style.button}>Cancel</button></td>
+                <td>
+                  <button
+                    type="button"
+                    className={style.button}
+                    onClick={() => {
+                      dispatch(deleteReservations(element.id));
+                      dispatch(getReservations());
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </td>
               </tr>
             ))}
         </tbody>
