@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/thecodechaser-blueviolet)
+![](https://img.shields.io/badge/goldensquad-brown)
 
 # Book Appoinments Frontend
 
@@ -48,7 +48,7 @@
 
 ## Live version
 
-[Book-Appoinments]()
+[In progress]
 
 ## Getting Started
 
@@ -91,9 +91,9 @@ npm run test
 ```
 
 
-## Visit And Open Files
+## Backend Repo
 
-[Visit Repo](https://github.com/clintonjosephs/book-a-doctor-frontend.git)
+[Book Doctors Backend](https://github.com/clintonjosephs/book-a-doctor-backend.git)
 
 
 ## Team Members
