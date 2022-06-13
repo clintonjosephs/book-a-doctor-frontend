@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addDoctorThunk } from '../../redux/bookDoctor/doctorThunks';
@@ -11,6 +11,13 @@ function AddDoctor() {
   const { loading } = useSelector((state) => state.bookDoctorReducer);
   const [info, setMessage] = useState({ message: '', status: false });
   const { message, status } = info;
+  const user = useSelector((state) => state.userReducer.userDetails);
+
+  useEffect(() => {
+    if (user.role !== 'admin') {
+      navigate('/');
+    }
+  }, []);
 
   const goBack = () => navigate('/');
 
