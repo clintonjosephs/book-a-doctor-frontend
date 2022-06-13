@@ -36,7 +36,7 @@ const adminDataSet = [
     id: 5,
     title: 'Add Doctors',
     path: '/add_doctor',
-    icon: <FaIcons.FaBriefcaseMedical />,
+    icon: <AiIcons.AiTwotoneShopping />,
     className: 'nav-text',
   },
 ];

@@ -60,3 +60,10 @@ export const getAllReservation = async (route) => {
     .then((json) => json);
   return rest;
 };
+
+export const deleteDoctor = async (route) => fetch(endpoint + route, {
+  method: 'DELETE',
+  headers: {
+    Authorization: `Bearer ${StorageManager.getToken().token}`,
+  },
+}).then((response) => response);
