@@ -27,7 +27,7 @@ function MyReservations() {
           </tr>
         </thead>
         <tbody>
-          {reservation && reservation[0] === 'No appointments found'
+          {reservation && reservation.includes('No appointments found')
             ? <tr><td>There is no Reservations</td></tr>
             : reservation.map((element) => (
               <tr key={element.id}>
