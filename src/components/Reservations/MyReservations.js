@@ -4,11 +4,11 @@ import * as FaIcons from 'react-icons/fa';
 import { convertDateWithName } from '../../helpers/format/format';
 import style from './MyReservation.module.css';
 
-import getReservations from '../../redux/reservation/reservationThunks';
+import getReservations, { deleteReservations } from '../../redux/reservation/reservationThunks';
 
 function MyReservations() {
   const dispatch = useDispatch();
-  const reservation = useSelector((state) => state.reservationReducer);
+  const reservation = useSelector((state) => state.reservationReducers.reservationReducer);
   const [reservationState, setReservationState] = useState(reservation);
   useEffect(() => {
     dispatch(getReservations());
@@ -17,8 +17,9 @@ function MyReservations() {
 
   return (
     <section className={style.reservation}>
+
       <div className={style.table} id="table">
-        {reservation && reservation[0] === 'No appointments found' ? (
+        {reservation && reservation.includes('No appointments found') ? (
           <div>
             <span>There is no Reservations</span>
           </div>
@@ -36,7 +37,15 @@ function MyReservations() {
                 <span>{element.doctor.specialization}</span>
               </div>
               <div>
-                <button type="button" className={style.button}>
+                <button
+                  type="button"
+                  className={style.button}
+                  onClick={() => {
+                    dispatch(deleteReservations(element.id));
+                    dispatch(getReservations());
+                    setReservationState(reservation);
+                  }}
+                >
                   Cancel
                 </button>
               </div>

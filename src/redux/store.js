@@ -3,12 +3,12 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import bookDoctorReducer from './bookDoctor/doctorActions';
 import userReducer from './user/userActions';
-import reservationReducer from './reservation/reservationActions';
+import reservationReducers from './reservation/reservationActions';
 
 const reducer = combineReducers({
   bookDoctorReducer,
   userReducer,
-  reservationReducer,
+  reservationReducers,
 });
 
 // creating a store

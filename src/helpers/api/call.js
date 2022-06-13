@@ -61,6 +61,17 @@ export const getAllReservation = async (route) => {
   return rest;
 };
 
+export const deleteReservation = async (route, id) => {
+  const rest = await fetch(`${endpoint + route}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${StorageManager.getToken().token}`,
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => json);
+  return rest;
+};
 export const deleteDoctor = async (route) => fetch(endpoint + route, {
   method: 'DELETE',
   headers: {
