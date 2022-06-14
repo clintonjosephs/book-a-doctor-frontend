@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import AnimateWrapper from '../../components/AnimateWrapper';
 import { userStatus } from '../../helpers/format/format';
 import { accountLogin } from '../../redux/bookDoctor/doctorThunks';
@@ -40,6 +41,7 @@ const Login = () => {
   const loginHandler = async (event) => {
     event.preventDefault();
     const response = await dispatch(accountLogin(loginData));
+    toast.success('LogIn');
     if (response.status) {
       navigate('/');
     } else {
