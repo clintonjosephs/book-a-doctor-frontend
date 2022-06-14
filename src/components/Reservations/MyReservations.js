@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as FaIcons from 'react-icons/fa';
+import { toast } from 'react-toastify';
 import { convertDateWithName } from '../../helpers/format/format';
 import style from './MyReservation.module.css';
 
@@ -44,6 +45,7 @@ function MyReservations() {
                     dispatch(deleteReservations(element.id));
                     dispatch(getReservations());
                     setReservationState(reservation);
+                    toast.success('Booking Cancled');
                   }}
                 >
                   Cancel
