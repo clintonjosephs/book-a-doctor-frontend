@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Countries snapshot renders correctly 1`] = `
+<section
+  className="doctor"
+>
+  <div
+    className="detail"
+  >
+    <div
+      className="photo"
+    >
+      <img
+        alt="doctor"
+      />
+    </div>
+    <div
+      className="info"
+    >
+      <h2
+        className="name"
+      />
+      <div
+        className="description"
+      />
+      <div
+        className="item neutral"
+      >
+        <div>
+          City
+        </div>
+        <div
+          className="city"
+        />
+      </div>
+      <div
+        className="item"
+      >
+        <div>
+          Specialization
+        </div>
+        <div
+          className="specialization"
+        />
+      </div>
+      <div
+        className="item neutral"
+      >
+        <div>
+          Cost per day
+        </div>
+        <div
+          className="cost_per_day"
+        >
+          $
+        </div>
+      </div>
+      <div
+        className="reserve"
+      >
+        <button
+          className="btn"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="fa-solid fa-gear"
+          />
+          Reserve
+          <i
+            className="fa-regular fa-circle-right"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="back"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <button
+        className="btn1"
+        type="button"
+      >
+        <i
+          className="fa-solid fa-caret-left"
+        />
+      </button>
+    </a>
+  </div>
+  <div />
+</section>
+`;

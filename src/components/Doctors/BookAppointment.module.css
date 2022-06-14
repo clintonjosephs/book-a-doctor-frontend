@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+}
+
+.book_appointment_container {
+  margin-left: 18rem;
+  height: 100vh;
+  background-image: linear-gradient(#97bf0fe3, #97bf0fe3), url('../../assets/images/login_bg.jpeg');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.book_appointment_container .book_appointment {
+  min-width: 300px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.book_appointment_container .h1 {
+  margin-bottom: 2rem;
+}
+
+.book_appointment_container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.book_appointment_container .inputs {
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid white;
+  min-width: 400px;
+  margin: 10px;
+  background-color: #97bf0f;
+  color: white;
+  width: 100%;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.book_appointment_container .disabled {
+  border: 1px solid gainsboro;
+  padding: 15px;
+  border-radius: 20px;
+  min-width: 400px;
+  margin: 10px;
+  background-color: #97bf0f;
+  color: gainsboro;
+  width: 100%;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.book_appointment_container :focus {
+  outline: none !important;
+}
+
+.book_appointment_container button {
+  min-width: 200px;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 25px;
+  border: 1px solid white;
+  background-color: #97bf0f;
+  color: white;
+  transition: all 0.5s;
+}
+
+.book_appointment_container button:hover {
+  box-shadow: 1px 2px 15px black;
+  transition: all 0.5s;
+}
+
+.book_appointment_container .div_input {
+  display: flex;
+  flex-direction: column;
+}
+
+.book_appointment_container .div_input span {
+  font-size: small;
+  align-self: center;
+  color: black;
+  display: none;
+}
+
+.book_appointment_container input:invalid[focused='true'] ~ span {
+  display: block;
+}
+
+.book_appointment_container input:invalid[focused='true'] {
+  border-color: red;
+}
+
+@media (max-width: 992px) {
+  .book_appointment_container {
+    margin-left: 0;
+  }
+
+  .book_appointment {
+    width: 100%;
+  }
+
+  .book_appointment_container .inputs,
+  .book_appointment_container .disabled {
+    width: 100%;
+  }
+
+  .book_appointment_container form {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .book_appointment_container .inputs,
+  .book_appointment_container .disabled {
+    min-width: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}

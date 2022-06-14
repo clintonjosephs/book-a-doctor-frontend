@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInput renders correctly 1`] = `
+<div
+  className="div_input"
+>
+  <input
+    focused="false"
+    name=""
+    onBlur={[Function]}
+    onChange={null}
+    onFocus={[Function]}
+    placeholder=""
+    required={true}
+    type=""
+    value=""
+  />
+  <span>
+    
+  </span>
+</div>
+`;
+
+exports[`Signup renders correctly 1`] = `
+<section
+  className="loginContainer"
+>
+  <div
+    className="login shadow"
+  >
+    <h2>
+      Sign Up
+    </h2>
+    <div
+      className="line"
+    />
+    <div
+      className="failure"
+    />
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="div_input"
+      >
+        <input
+          focused="false"
+          name="name"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          pattern="^[A-Za-z0-9 ]{3,150}$"
+          placeholder="Name*"
+          required={true}
+          type="text"
+          value=""
+        />
+        <span>
+          Name should be 3-150 characters.
+        </span>
+      </div>
+      <div
+        className="div_input"
+      >
+        <input
+          focused="false"
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Email*"
+          required={true}
+          type="email"
+          value=""
+        />
+        <span>
+          Email should be a valid email.
+        </span>
+      </div>
+      <div
+        className="div_input"
+      >
+        <input
+          focused="false"
+          name="password"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          pattern="[A-Za-z0-9]{6,20}"
+          placeholder="Password*"
+          required={true}
+          type="password"
+          value=""
+        />
+        <span>
+          Password should be 6-20 characters, without special characters.
+        </span>
+      </div>
+      <div
+        className="div_input"
+      >
+        <input
+          focused="false"
+          name="password_confirmation"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Confirm Password*"
+          required={true}
+          type="password"
+          value=""
+        />
+        <span>
+          Passwords don't match
+        </span>
+      </div>
+      <input
+        id="image"
+        name="image"
+        type="file"
+      />
+      <button
+        className="formSubmitBtn"
+        type="submit"
+      >
+        Signup
+      </button>
+      <div
+        style={
+          Object {
+            "marginTop": "1rem",
+          }
+        }
+      >
+        Have an account?
+        <a
+          className=""
+          href="/login"
+          onClick={[Function]}
+        >
+           login 
+        </a>
+      </div>
+    </form>
+  </div>
+</section>
+`;

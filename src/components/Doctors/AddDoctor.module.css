@@ -1,0 +1,46 @@
+.doctorContainer {
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctor {
+  width: 30rem;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.line {
+  width: 7rem;
+  height: 0.2rem;
+  background-color: var(--primary-color);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.banner {
+  width: 100%;
+  min-height: 20rem;
+  margin-bottom: 2rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+  .doctor {
+    width: 100%;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: #fff;
+  }
+}

@@ -1,0 +1,102 @@
+.notFound {
+  background-color: var(--primary-color);
+  width: 100%;
+  height: 100vh;
+}
+
+.mainbox {
+  background-color: var(--primary-color);
+  margin: auto;
+  height: 600px;
+  width: 600px;
+  position: relative;
+}
+
+.err {
+  color: var(--white);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11rem;
+  position: absolute;
+  left: 20%;
+  top: 8%;
+}
+
+.far {
+  position: absolute;
+  font-size: 8.5rem;
+  left: 42%;
+  top: 15%;
+  color: var(--secondary-color);
+}
+
+.err2 {
+  color: var(--white);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 11rem;
+  position: absolute;
+  left: 68%;
+  top: 8%;
+}
+
+.msg {
+  text-align: center;
+  font-size: 1rem;
+  position: absolute;
+  left: 16%;
+  top: 45%;
+  width: 75%;
+}
+
+.notFound a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.notFound a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .mainbox {
+    background-color: var(--primary-color);
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  .err {
+    color: #fff;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 5rem;
+    position: absolute;
+    left: 20%;
+    top: 15%;
+  }
+
+  .far {
+    position: absolute;
+    font-size: 5rem;
+    left: 42%;
+    top: 15%;
+    color: var(--secondary-color);
+  }
+
+  .err2 {
+    color: #fff;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 5rem;
+    position: absolute;
+    left: 68%;
+    top: 15%;
+  }
+
+  .msg {
+    text-align: center;
+    font-size: 1rem;
+    position: absolute;
+    left: 16%;
+    top: 45%;
+    width: 75%;
+  }
+}
