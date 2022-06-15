@@ -41,7 +41,7 @@ export const convertDateWithName = (date) => {
 };
 
 export const notification = (message, type) => {
-  if (type === 'true') {
+  if (type === true) {
     return toast.success(message);
   }
   return toast.error(message);

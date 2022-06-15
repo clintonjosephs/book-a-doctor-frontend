@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
 import { deleteDoctorThunk, fetchAllDoctors } from '../../redux/bookDoctor/doctorThunks';
 import styles from './list.module.css';
@@ -22,7 +21,6 @@ function ListDoctors() {
   }, []);
   const deleteDoc = (id) => {
     dispatch(deleteDoctorThunk(id));
-    toast.success('Doctor deleted successfully');
   };
 
   return (

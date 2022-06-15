@@ -68,10 +68,10 @@ export const addAppointmentDispatcher = (id, dateAppointment) => async (dispatch
 
   if (responseToJson.error) {
     dispatch(actions.addAppointmentFailure(responseToJson.error_message));
-    notification(responseToJson.error_message, true);
+    notification(responseToJson.error_message, false);
   } else {
     dispatch(actions.addAppointment(responseToJson.data));
-    notification('Appointment book successful', false);
+    notification('Doctor appointment booked successfully', true);
   }
 };
 
@@ -84,7 +84,6 @@ export const addDoctorThunk = (data) => async (dispatch) => {
       dispatch(actions.apiErrors(false));
       dispatch(actions.loading(false));
       if (json.id) {
-        console.log(json);
         dispatch(actions.addOneDoctor(json));
         message = { message: 'Doctor was created succesfully', status: true };
         notification('Doctor was created succesfully', true);

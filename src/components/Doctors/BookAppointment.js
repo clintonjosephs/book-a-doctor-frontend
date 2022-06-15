@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 import { addAppointmentDispatcher, fetchAllDoctors } from '../../redux/bookDoctor/doctorThunks';
@@ -32,7 +31,6 @@ function BookAppointment() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addAppointmentDispatcher(selectedDoctor, dateAppointment));
-    toast.success('Booking Succesfully');
     navigate('/myreservations');
   };
 
