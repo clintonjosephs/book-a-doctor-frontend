@@ -9,7 +9,6 @@ const getReservations = () => async (dispatch) => {
     notification(response.error_message, false);
   } else {
     dispatch(actions.getReservationsSuccess(response.data));
-    notification('All appointments fetched successfully', true);
   }
 };
 

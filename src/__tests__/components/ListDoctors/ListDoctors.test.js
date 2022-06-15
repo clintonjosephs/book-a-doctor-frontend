@@ -4,8 +4,8 @@ import {
 } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import ListDoctors from '../../components/Doctors/ListDoctors';
-import store from '../../redux/store';
+import ListDoctors from '../../../components/Doctors/ListDoctors';
+import store from '../../../redux/store';
 
 const Wrapper = () => (
   <Provider store={store}>
