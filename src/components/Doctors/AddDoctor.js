@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { addDoctorThunk } from '../../redux/bookDoctor/doctorThunks';
 import classes from './AddDoctor.module.css';
 import form from '../../pages/Login/Login.module.css';
@@ -28,6 +29,7 @@ function AddDoctor() {
     data.append('doctor[city]', event.target.city.value);
     data.append('doctor[description]', event.target.description.value);
     data.append('doctor[cost_per_day]', event.target.cost_per_day.value);
+    toast.success('Doctor added');
     if (event.target.image.files.length !== 0) data.append('doctor[image]', event.target.image.files[0]);
     return data;
   }

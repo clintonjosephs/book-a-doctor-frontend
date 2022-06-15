@@ -22,7 +22,7 @@ function ListDoctors() {
   }, []);
   const deleteDoc = (id) => {
     dispatch(deleteDoctorThunk(id));
-    toast.success('Doctor successfully deleted');
+    toast.success('Doctor deleted successfully');
   };
 
   return (
