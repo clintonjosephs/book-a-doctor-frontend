@@ -44,6 +44,6 @@ test('should have a appointment date', () => {
 });
 
 test('it should have two cancel buttons', async () => {
-    const response = await Wrapper.getAllByRole('button');
-    expect(response.length).toEqual(2);
+  const response = await Wrapper.getAllByRole('button');
+  expect(response.length).toEqual(2);
 });

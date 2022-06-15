@@ -4,7 +4,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import store from '../../../redux/store';
 import MyReservations from '../../../components/Reservations/MyReservations';
 
-
 const Wrapper = () => (
   <Provider store={store}>
     <Router>
@@ -19,7 +18,6 @@ describe('check login components', () => {
     expect(component).toMatchSnapshot();
   });
 });
-
 
 // it('MyReservations renders correctly', () => {
 //   const tree = <Wrapper />;
