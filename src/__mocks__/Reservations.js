@@ -1,4 +1,4 @@
-const appointments = [
+const MockData = [
     {
         "id": "40",
         "doctor": {
@@ -33,4 +33,4 @@ const appointments = [
     }
 ];
 
-export default appointments
+export default MockData;
