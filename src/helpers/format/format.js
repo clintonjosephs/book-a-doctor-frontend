@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import StorageManager from './StorageManager';
 
 export const dateDiff = (date) => {
@@ -21,7 +22,11 @@ export const chunkArray = (array) => {
 
 export const userStatus = () => {
   const auth = StorageManager.getToken();
-  if (auth.token === '' || !auth || (auth.token !== '' && dateDiff(auth.exp_date.toString()) === 1)) {
+  if (
+    auth.token === ''
+    || !auth
+    || (auth.token !== '' && dateDiff(auth.exp_date.toString()) === 1)
+  ) {
     return false;
   }
   return true;
@@ -33,4 +38,11 @@ export const convertDateWithName = (date) => {
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
 
   return event.toLocaleDateString('en-US', options);
+};
+
+export const notification = (message, type) => {
+  if (type === 'true') {
+    return toast.success(message);
+  }
+  return toast.error(message);
 };

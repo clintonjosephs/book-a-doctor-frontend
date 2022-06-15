@@ -1,11 +1,10 @@
-import { chunkArray } from '../../helpers/format/format';
+import { chunkArray, notification } from '../../helpers/format/format';
 import {
   getRequest, postRequest, getOneDoctor, addDoctorApi, deleteDoctor,
 } from '../../helpers/api/call';
 import StorageManager from '../../helpers/format/StorageManager';
 import { loginSuccess } from '../user/userActions';
 import * as actions from './doctorActions';
-// import { setUserData } from '../../helpers/format/userDataManager';
 
 export const fetchAllDoctors = () => async (dispatch) => {
   try {
@@ -45,8 +44,10 @@ export const accountLogin = (data) => async (dispatch) => {
         StorageManager.setToken(json.token, json.exp);
         dispatch(loginSuccess(json.user_details));
         message = { message: 'Login successful, redirecting ...', status: true };
+        notification('Login successful', true);
       } else {
         message = { message: json.error_message, status: false };
+        notification(json.error_message, false);
       }
     });
   return message;
@@ -67,8 +68,10 @@ export const addAppointmentDispatcher = (id, dateAppointment) => async (dispatch
 
   if (responseToJson.error) {
     dispatch(actions.addAppointmentFailure(responseToJson.error_message));
+    notification(responseToJson.error_message, true);
   } else {
     dispatch(actions.addAppointment(responseToJson.data));
+    notification('Appointment book successful', false);
   }
 };
 
@@ -81,10 +84,13 @@ export const addDoctorThunk = (data) => async (dispatch) => {
       dispatch(actions.apiErrors(false));
       dispatch(actions.loading(false));
       if (json.id) {
+        console.log(json);
         dispatch(actions.addOneDoctor(json));
         message = { message: 'Doctor was created succesfully', status: true };
+        notification('Doctor was created succesfully', true);
       } else {
         message = { message: 'Error in validations', status: false };
+        notification('Error in validation', false);
       }
     });
   return message;
@@ -100,8 +106,10 @@ export const deleteDoctorThunk = (id) => async (dispatch) => {
       if (json.message) {
         dispatch(actions.deleteDoctor(id));
         message = { message: json.message, status: true };
+        notification(json.message, true);
       } else {
         message = { message: json.error, status: false };
+        notification(json.error, false);
       }
     });
   return message;

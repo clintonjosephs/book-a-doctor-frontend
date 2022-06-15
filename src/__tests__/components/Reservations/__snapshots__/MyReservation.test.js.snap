@@ -8,31 +8,10 @@ Object {
       <section
         class="reservation"
       >
-        <table
+        <div
           class="table"
           id="table"
-        >
-          <thead>
-            <tr>
-              <th>
-                Doctor Picture
-              </th>
-              <th>
-                Doctor Name
-              </th>
-              <th>
-                Doctor Special
-              </th>
-              <th>
-                Appointment Date
-              </th>
-              <th>
-                action
-              </th>
-            </tr>
-          </thead>
-          <tbody />
-        </table>
+        />
       </section>
     </div>
   </body>,
@@ -40,31 +19,10 @@ Object {
     <section
       class="reservation"
     >
-      <table
+      <div
         class="table"
         id="table"
-      >
-        <thead>
-          <tr>
-            <th>
-              Doctor Picture
-            </th>
-            <th>
-              Doctor Name
-            </th>
-            <th>
-              Doctor Special
-            </th>
-            <th>
-              Appointment Date
-            </th>
-            <th>
-              action
-            </th>
-          </tr>
-        </thead>
-        <tbody />
-      </table>
+      />
     </section>
   </div>,
   "debug": [Function],
