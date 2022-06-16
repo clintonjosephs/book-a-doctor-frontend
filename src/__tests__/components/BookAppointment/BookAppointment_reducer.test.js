@@ -19,7 +19,7 @@ describe('addAppointment actions', () => {
 
     expect(newState).toEqual({
       ...state,
-      doctor: null,
+      doctor: [],
       appointments: [
         {
           doctor_id: 1,
