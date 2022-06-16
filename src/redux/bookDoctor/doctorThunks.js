@@ -84,7 +84,8 @@ export const addDoctorThunk = (data) => async (dispatch) => {
       dispatch(actions.apiErrors(false));
       dispatch(actions.loading(false));
       if (json.id) {
-        dispatch(actions.addOneDoctor(json));
+        const newjson = { ...json, imageUrl: json.image_url };
+        dispatch(actions.addOneDoctor(newjson));
         message = { message: 'Doctor was created succesfully', status: true };
         notification('Doctor was created succesfully', true);
       } else {

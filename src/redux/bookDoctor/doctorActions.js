@@ -111,10 +111,7 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
     case DELETE_DOCTOR:
       return {
         ...state,
-        doctors: {
-          ...state.doctors,
-          data: state.doctors.filter((d) => d.id !== payload),
-        },
+        doctors: state.doctors.filter((d) => d.id !== payload),
       };
     default:
       return state;
