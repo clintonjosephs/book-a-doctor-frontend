@@ -8,7 +8,7 @@ describe('Signup actions', () => {
     const state = {};
     const newState = userReducer(state, {
       type: SIGNUP_SUCCESS,
-      payload: { userDetails: { name: 'test', email: 'test@test.fr', role: 'user' } },
+      payload: { name: 'test', email: 'test@test.fr', role: 'user' },
     });
 
     expect(newState).toEqual({

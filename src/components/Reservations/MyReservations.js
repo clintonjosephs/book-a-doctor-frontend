@@ -13,7 +13,7 @@ function MyReservations() {
   useEffect(() => {
     dispatch(getReservations());
     setReservationState(reservation);
-  }, [reservationState.length]);
+  }, []);
 
   return (
     <section className={style.reservation}>
@@ -52,6 +52,10 @@ function MyReservations() {
             </div>
           ))
         )}
+      </div>
+      <div style={{ display: 'none' }}>
+        Count:
+        { reservationState.length }
       </div>
     </section>
   );
