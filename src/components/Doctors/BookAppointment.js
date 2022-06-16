@@ -13,7 +13,7 @@ function BookAppointment() {
   const [dateAppointment, setDateAppointment] = useState('');
   const [selectedDoctorcity, setSelectedDoctorcity] = useState('');
   const [selectedDoctor, setSelectedDoctor] = useState('');
-  let doctors = useSelector((state) => state.bookDoctorReducer.doctors.data || []);
+  let doctors = useSelector((state) => state.bookDoctorReducer.doctors || []);
 
   useEffect(() => {
     if (currentDoctor) {

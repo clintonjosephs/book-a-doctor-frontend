@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import SidebarData from './SidebarData';
@@ -16,6 +17,7 @@ function Navbar() {
   const logout = () => {
     StorageManager.removeToken();
     dispatch(loading(false));
+    toast.success('Logout');
     navigate('/login');
   };
 

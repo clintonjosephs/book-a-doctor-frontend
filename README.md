@@ -11,6 +11,9 @@
 ## Kanban Board
 [Kanban Board](https://github.com/clintonjosephs/book-a-doctor-backend/projects/1)
 
+## Initial state Of Kanban Board
+[Initial Kanban Board](https://github.com/clintonjosephs/book-a-doctor-backend/issues/15)
+
 > ***We are a group of five***
 1. Team 1 - [Clinton](https://github.com/clintonjosephs)
 2. Team 2 - [Jihane](https://github.com/jaflih)
@@ -113,8 +116,7 @@ npm run test
 👤 **Jihane Aflih**
 
 - GitHub: [@jaflih](https://github.com/jaflih)
-- Twitter: []()
-- LinkedIn: []()
+- LinkedIn: [@jaflih](https://www.linkedin.com/in/jaflih/)
 
 👤 **NURI LACKA**
 
