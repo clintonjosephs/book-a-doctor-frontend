@@ -8,5 +8,15 @@ exports[`check login components matches actual design 1`] = `
     className="table"
     id="table"
   />
+  <div
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    Count:
+    0
+  </div>
 </section>
 `;
