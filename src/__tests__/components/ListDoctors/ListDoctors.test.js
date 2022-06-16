@@ -1,20 +1,18 @@
-import {
-  fireEvent,
-  render, screen, waitFor, waitForElementToBeRemoved,
-} from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { render, cleanup } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import fetchMock from 'jest-fetch-mock';
 import ListDoctors from '../../../components/Doctors/ListDoctors';
-import store from '../../../redux/store';
 
-const Wrapper = () => (
-  <Provider store={store}>
-    <BrowserRouter>
+let Wrapper;
+beforeEach(() => {
+  Wrapper = render(
+    <Router>
       <ListDoctors />
-    </BrowserRouter>
-  </Provider>
-);
-const doctor = [{
+    </Router>,
+  );
+});
+
+const mockDoctorsData = [{
   city: 'New Jearsy',
   costPerDay: 70,
   description: 'Dr. Jane Doe is a nevrologiest who specializes in heart disease. She is a certified heart surgeon and a member of the American Heart Association.',
@@ -22,25 +20,37 @@ const doctor = [{
   imageUrl: 'http://localhost:3001/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d9d590deab090b564592db9bb1d5008f3a7c12ee/doctor2.jpg',
   name: 'Dr. Jane Doe',
   specialization: 'Nevrology',
+},
+{
+  city: 'Another Test Doctor',
+  costPerDay: 72,
+  description: 'Dr. Jane Doe is a nevrologiest who specializes in heart disease. She is a certified heart surgeon and a member of the American Heart Association.',
+  id: '3',
+  imageUrl: 'http://localhost:3001/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d9d590deab090b564592db9bb1d5008f3a7c12ee/doctor2.jpg',
+  name: 'Mr. Test Doctor',
+  specialization: 'Local Medicine',
 }];
-global.fetch = (url) => Promise.resolve({
-  json: () => Promise.resolve(
-    !url.includes('/2') ? { data: doctor } : { message: 'Deleted' },
+
+fetchMock.enableMocks();
+
+const mockDispatch = jest.fn();
+jest.mock('react-redux', () => ({
+  useSelector: () => (
+    mockDoctorsData
   ),
+  useDispatch: () => mockDispatch,
+}));
+
+
+afterEach(() => {
+  cleanup();
 });
+
 describe('listDoctors Component', () => {
   it('should render doctors list', async () => {
-    render(<Wrapper />);
-
-    await waitFor(() => expect(screen.getByAltText('docs')).toBeInTheDocument());
-    const Doctor = screen.getByText('Dr. Jane Doe');
+    const response = await Wrapper.getAllByAltText('docs');
+     expect(response.length).toEqual(2);
+    const Doctor = Wrapper.getByText('Dr. Jane Doe');
     expect(Doctor).toBeInTheDocument();
-  });
-
-  it('doctors should be removed on delete', async () => {
-    render(<Wrapper />);
-    fireEvent.click(screen.getByRole('button'));
-    await waitForElementToBeRemoved(screen.getByAltText('docs'), { timeout: 3000 });
-    expect(document.querySelectorAll('svg').length).toBe(0);
   });
 });

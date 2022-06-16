@@ -18,8 +18,3 @@ describe('check login components', () => {
     expect(component).toMatchSnapshot();
   });
 });
-
-// it('MyReservations renders correctly', () => {
-//   const tree = <Wrapper />;
-//   expect(tree).toMatchSnapshot();
-// });
