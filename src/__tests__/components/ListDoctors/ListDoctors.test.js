@@ -41,7 +41,6 @@ jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch,
 }));
 
-
 afterEach(() => {
   cleanup();
 });
@@ -49,7 +48,7 @@ afterEach(() => {
 describe('listDoctors Component', () => {
   it('should render doctors list', async () => {
     const response = await Wrapper.getAllByAltText('docs');
-     expect(response.length).toEqual(2);
+    expect(response.length).toEqual(2);
     const Doctor = Wrapper.getByText('Dr. Jane Doe');
     expect(Doctor).toBeInTheDocument();
   });
