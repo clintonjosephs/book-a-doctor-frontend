@@ -13,7 +13,7 @@ const userReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         signup: true,
-        userDetails: payload.userDetails,
+        userDetails: payload,
       };
     }
     case LOGIN_SUCCESS: {
