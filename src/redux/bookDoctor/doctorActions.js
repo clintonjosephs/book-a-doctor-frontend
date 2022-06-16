@@ -26,7 +26,7 @@ const bookDoctorState = {
 // synchronous actions
 export const loadAllDoctors = (payload) => ({
   type: GET_ALL_DOCTORS,
-  payload,
+  payload: payload.data,
 });
 
 export const loadOneDoctor = (payload) => ({
@@ -89,8 +89,8 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
     case GET_DOCTOR:
       return { ...state, doctor: payload };
     case ADD_DOCTOR: {
-      const doctors = [...state.doctors, payload];
-      return { ...state, doctors };
+      // const doctors = [...state.doctors, payload];
+      return { ...state, doctors: [...state.doctors, payload] };
     }
     case API_ERROR:
       return { ...state, error: payload };
@@ -113,7 +113,7 @@ const bookDoctorReducer = (state = bookDoctorState, { type, payload }) => {
         ...state,
         doctors: {
           ...state.doctors,
-          data: state.doctors.data.filter((d) => d.id !== payload),
+          data: state.doctors.filter((d) => d.id !== payload),
         },
       };
     default:

@@ -5,14 +5,17 @@ import { useNavigate } from 'react-router';
 import { deleteDoctorThunk, fetchAllDoctors } from '../../redux/bookDoctor/doctorThunks';
 import styles from './list.module.css';
 
+let fetched = false;
+
 function ListDoctors() {
   const doctors = useSelector((state) => state.bookDoctorReducer.doctors);
   const user = useSelector((state) => state.userReducer.userDetails);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!doctors.data) {
+    if (!fetched) {
       dispatch(fetchAllDoctors());
+      fetched = true;
     }
 
     if (user.role !== 'admin') {
@@ -27,7 +30,7 @@ function ListDoctors() {
     <>
       <section className={styles.listContainer}>
         <div className={styles.listDoctor}>
-          {doctors.data ? doctors.data.map((doctor) => (
+          {doctors ? doctors.map((doctor) => (
             <div key={doctor.id} className={styles.list}>
               <img src={doctor.imageUrl} alt="docs" className={styles.docImage} />
               <div className={styles.delete}>
